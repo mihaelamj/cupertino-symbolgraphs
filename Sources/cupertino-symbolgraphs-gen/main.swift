@@ -101,7 +101,7 @@ struct Tool: AsyncParsableCommand {
         let manifest = Manifest(
             generatedAt: ISO8601DateFormatter().string(from: Date()),
             swiftVersion: (try? await runCapture("/usr/bin/xcrun", ["swift", "--version"])) ?? "unknown",
-            sdkVersion: (try? await runCapture("/usr/bin/xcrun", ["--show-sdk-version"])) ?? "unknown",
+            sdkVersion: readSDKVersion(at: resolvedSDK) ?? "unknown",
             sdkPath: resolvedSDK,
             targetTriple: target,
             results: results
@@ -111,6 +111,20 @@ struct Tool: AsyncParsableCommand {
         print()
         print("Manifest: \(manifestURL.path)")
         print("Summary: \(manifest.summary.totalSlugs) slugs / \(manifest.summary.okCount) OK / \(manifest.summary.failedCount) FAIL / \(manifest.summary.totalBytes / 1_024 / 1_024) MB")
+    }
+
+    /// Read the SDK version directly from `<sdk>/SDKSettings.plist`.
+    /// More robust than `xcrun --show-sdk-version`, which depends on
+    /// `xcode-select` pointing at a working developer dir.
+    private func readSDKVersion(at sdkPath: String) -> String? {
+        let plistURL = URL(fileURLWithPath: sdkPath).appendingPathComponent("SDKSettings.plist")
+        guard let data = try? Data(contentsOf: plistURL),
+              let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any],
+              let version = plist["Version"] as? String
+        else {
+            return nil
+        }
+        return version
     }
 
     private func runCapture(_ executable: String, _ args: [String]) async throws -> String {
