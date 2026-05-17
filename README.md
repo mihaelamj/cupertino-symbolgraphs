@@ -6,15 +6,19 @@ Apple SDK symbolgraph corpus for [cupertino](https://github.com/mihaelamj/cupert
 
 `cupertino-symbolgraphs-gen` runs `xcrun swift symbolgraph-extract` for every Apple framework slug that appears in cupertino's apple-docs corpus, producing one `*.symbols.json` per module. The result is a per-Swift-version snapshot of Apple's public Swift API surface used by downstream tools (e.g. constraint extraction, conformance graph, availability matrix) that need authoritative SDK metadata rather than what's parseable from rendered HTML.
 
-The corpus itself (~1.3 GB on disk) is **not committed to this repo's git tree**. It's regenerated from the active Xcode toolchain via this binary and distributed via [GitHub Releases](https://github.com/mihaelamj/cupertino-symbolgraphs/releases) — one zip per Swift version. The git tree holds only the slug→module mapper, the extractor source, the validation step, and the manifest of the last published corpus.
+The corpus is **not committed to this repo's git tree**. It's regenerated from the active Xcode toolchain via this binary and distributed via [GitHub Releases](https://github.com/mihaelamj/cupertino-symbolgraphs/releases) — one zip per Swift version. The git tree holds only the slug→module mapper, the extractor source, the validation step, and the manifest of the last published corpus.
+
+## Coverage
+
+Each framework is extracted under macOS first (`arm64-apple-macos15` against the active macOS SDK). Frameworks that don't exist on macOS (UIKit, WatchKit, MessageUI, CarPlay, HealthKitUI, etc.) automatically fall back to iOS (`arm64-apple-ios18` against the active iPhoneOS SDK) so the published corpus is the union of both platforms. Per-slug results record which target produced them; the manifest's `summary.slugsPerTarget` aggregates the split.
 
 ## When to regenerate
 
 Run `cupertino-symbolgraphs-gen` when any of these change:
 
 - **Xcode / CommandLineTools update** ships a new Swift compiler or new SDK headers
-- **macOS SDK target** bumps (the `-target` flag value)
-- **New Apple framework** appears in cupertino's apple-docs corpus that isn't in `FrameworkModuleMap.curated` yet — the validator's "SDK has Swift module(s) not in our extraction" warning surfaces this
+- **macOS or iOS SDK target** bumps (the `--macos-target` / `--ios-target` flags)
+- **New Apple framework** appears in cupertino's apple-docs corpus that isn't in `FrameworkModuleMap.curated` yet — the validator's "module(s) present in SDK but not extracted" warning surfaces this
 - **CHANGELOG-tracked Apple deprecation** that drops a previously-extracted framework
 
 After regenerating: publish the corpus as a new GitHub Release zip; update `cupertino`'s pinning to the new release.
@@ -25,15 +29,19 @@ After regenerating: publish the corpus as a new GitHub Release zip; update `cupe
 # Build
 swift build -c release
 
-# Run
+# Run (dual-target by default: macOS primary, iOS fallback)
 ./.build/release/cupertino-symbolgraphs-gen --output /tmp/corpus
+
+# Single-target (e.g. macOS only)
+./.build/release/cupertino-symbolgraphs-gen --output /tmp/corpus --ios-sdk-path ""
 
 # Verify
 cat /tmp/corpus/manifest.json | jq '.summary'
 ls /tmp/corpus/swiftui/
+ls /tmp/corpus/uikit/    # iOS-only framework, captured via fallback
 ```
 
-The binary reports per-25-slug progress, validates the result against the SDK's authoritative `.swiftmodule` ground truth, and writes `manifest.json` carrying generation metadata (Swift version, SDK version, target triple, ISO8601 timestamp, per-slug outcomes).
+The binary reports per-25-slug progress, validates the result against each SDK's authoritative `.swiftmodule` ground truth, and writes `manifest.json` carrying generation metadata (Swift version, per-target SDK paths + versions, ISO8601 timestamp, per-slug outcomes, per-target bytes / slug counts).
 
 ## Architecture
 

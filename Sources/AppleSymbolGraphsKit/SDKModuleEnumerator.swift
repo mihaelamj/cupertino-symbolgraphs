@@ -19,10 +19,25 @@ import Foundation
 /// Obj-C-only-with-Swift-overlay (extractable via headers/module
 /// maps) or genuinely non-Swift.
 public enum SDKModuleEnumerator {
-    /// Path to the active SDK as reported by `xcrun --show-sdk-path`.
+    /// Path to the active SDK as reported by `xcrun --show-sdk-path`
+    /// (no `-sdk` arg → default platform, usually macOS).
     public static func activeSDKPath() async throws -> String {
         let output = try await Self.runCapture("/usr/bin/xcrun", ["--show-sdk-path"])
         return output.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// Path to a specific SDK by short name (`iphoneos`, `appletvos`,
+    /// `watchos`, `xros`, etc.) as reported by
+    /// `xcrun --sdk <name> --show-sdk-path`.
+    public static func activeSDKPath(sdk: String) async throws -> String {
+        let output = try await Self.runCapture("/usr/bin/xcrun", ["--sdk", sdk, "--show-sdk-path"])
+        let trimmed = output.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.isEmpty {
+            throw NSError(domain: "SDKModuleEnumerator", code: 1, userInfo: [
+                NSLocalizedDescriptionKey: "xcrun could not locate SDK '\(sdk)'",
+            ])
+        }
+        return trimmed
     }
 
     /// All Swift module names available in the SDK at `sdkPath`.

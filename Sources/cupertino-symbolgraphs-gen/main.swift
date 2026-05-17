@@ -29,36 +29,75 @@ struct Tool: AsyncParsableCommand {
     @Option(name: .shortAndLong, help: "Output directory for the corpus + manifest.json.")
     var output: String
 
-    @Option(name: .long, help: "Override the SDK path (defaults to `xcrun --show-sdk-path`).")
-    var sdkPath: String?
+    @Option(name: .long, help: "macOS SDK path (defaults to `xcrun --show-sdk-path`).")
+    var macosSdkPath: String?
 
-    @Option(name: .long, help: "Target triple (default arm64-apple-macos15).")
-    var target: String = "arm64-apple-macos15"
+    @Option(name: .long, help: "macOS target triple (default arm64-apple-macos15).")
+    var macosTarget: String = "arm64-apple-macos15"
+
+    @Option(name: .long, help: "iPhoneOS SDK path (defaults to `xcrun --sdk iphoneos --show-sdk-path`). Set empty to disable the iOS fallback.")
+    var iosSdkPath: String?
+
+    @Option(name: .long, help: "iOS target triple (default arm64-apple-ios18).")
+    var iosTarget: String = "arm64-apple-ios18"
+
+    @Option(name: .long, help: "WatchOS SDK path (defaults to `xcrun --sdk watchos --show-sdk-path`). Set empty to disable the watchOS fallback.")
+    var watchosSdkPath: String?
+
+    @Option(name: .long, help: "watchOS target triple (default arm64_32-apple-watchos11).")
+    var watchosTarget: String = "arm64_32-apple-watchos11"
+
+    @Option(name: .long, help: "XROS (visionOS) SDK path (defaults to `xcrun --sdk xros --show-sdk-path`). Set empty to disable the visionOS fallback.")
+    var xrosSdkPath: String?
+
+    @Option(name: .long, help: "visionOS target triple (default arm64-apple-xros2).")
+    var xrosTarget: String = "arm64-apple-xros2"
 
     @Flag(name: .long, inversion: .prefixedNo, help: "Validate the result against the SDK's .swiftmodule ground truth and surface drift (default: on).")
     var validate: Bool = true
 
     func run() async throws {
+        // Disable stdout block buffering so progress prints land in the
+        // log immediately (otherwise prints buffer until process exit
+        // when stdout is redirected to a file).
+        setbuf(stdout, nil)
+
         let fm = FileManager.default
         let outputURL = URL(fileURLWithPath: (output as NSString).expandingTildeInPath)
         try fm.createDirectory(at: outputURL, withIntermediateDirectories: true)
 
-        // Resolve SDK.
-        let resolvedSDK: String
-        if let sdkPath {
-            resolvedSDK = sdkPath
+        // Resolve SDKs. macOS is required; iOS/watchOS/visionOS are
+        // best-effort fallbacks. `??` autoclosure can't host `await`,
+        // so resolve explicitly.
+        let macosSDK: String
+        if let macosSdkPath {
+            macosSDK = macosSdkPath
         } else {
-            resolvedSDK = try await SDKModuleEnumerator.activeSDKPath()
+            macosSDK = try await SDKModuleEnumerator.activeSDKPath()
         }
-        print("SDK: \(resolvedSDK)")
-        print("Target: \(target)")
+        func resolveOptional(arg: String?, sdkName: String) async -> String? {
+            if let arg { return arg.isEmpty ? nil : arg }
+            return try? await SDKModuleEnumerator.activeSDKPath(sdk: sdkName)
+        }
+        let iosSDK     = await resolveOptional(arg: iosSdkPath,     sdkName: "iphoneos")
+        let watchosSDK = await resolveOptional(arg: watchosSdkPath, sdkName: "watchos")
+        let xrosSDK    = await resolveOptional(arg: xrosSdkPath,    sdkName: "xros")
+
+        var targets: [ExtractionTarget] = [
+            ExtractionTarget(sdkPath: macosSDK, targetTriple: macosTarget),
+        ]
+        if let iosSDK     { targets.append(ExtractionTarget(sdkPath: iosSDK,     targetTriple: iosTarget)) }
+        if let watchosSDK { targets.append(ExtractionTarget(sdkPath: watchosSDK, targetTriple: watchosTarget)) }
+        if let xrosSDK    { targets.append(ExtractionTarget(sdkPath: xrosSDK,    targetTriple: xrosTarget)) }
         print("Output: \(outputURL.path)")
+        for (i, t) in targets.enumerated() {
+            print("Target \(i + 1): \(t.targetTriple)  sdk=\(t.sdkPath)")
+        }
         print()
 
         // Extract per slug.
         let extractor = SymbolGraphExtractor(
-            sdkPath: resolvedSDK,
-            targetTriple: target,
+            targets: targets,
             outputRoot: outputURL
         )
         let slugs = FrameworkModuleMap.allCuratedSlugs
@@ -69,41 +108,68 @@ struct Tool: AsyncParsableCommand {
             results.append(result)
             if (i + 1) % 25 == 0 {
                 let ok = results.filter { $0.status == .ok }.count
-                let fail = results.count - ok
-                print("  \(i + 1)/\(slugs.count) processed (OK: \(ok), FAIL: \(fail))")
+                let skipped = results.filter { $0.status == .skipped }.count
+                let fail = results.count - ok - skipped
+                print("  \(i + 1)/\(slugs.count) processed (OK: \(ok), SKIP: \(skipped), FAIL: \(fail))")
             }
         }
         let okCount = results.filter { $0.status == .ok }.count
-        let failCount = results.count - okCount
+        let skippedCount = results.filter { $0.status == .skipped }.count
+        let failCount = results.count - okCount - skippedCount
         print()
-        print("Extraction complete: \(okCount) OK, \(failCount) FAIL")
+        print("Extraction complete: \(okCount) OK, \(skippedCount) SKIP (non-SDK), \(failCount) FAIL")
+        if failCount > 0 {
+            print("Unexplained failures:")
+            for r in results where r.status == .failed {
+                print("  - \(r.slug)  (tried \(r.moduleName) on \(r.targetTriple))  \(r.errorMessage ?? "")")
+            }
+        }
 
-        // Validate against ground truth.
+        // Validate against ground truth (each SDK separately; a module
+        // is "covered" if extracted under any target).
         if validate {
-            print()
-            print("Validating against SDK .swiftmodule ground truth...")
-            let groundTruth = Set(try SDKModuleEnumerator.swiftModules(at: resolvedSDK))
             let extractedModules = Set(results.filter { $0.status == .ok }.map { $0.moduleName })
-            let missing = groundTruth.subtracting(extractedModules)
-                .filter { !$0.hasPrefix("_") } // skip private/internal
-            if missing.isEmpty {
-                print("  ✅ All user-facing SDK Swift modules extracted")
-            } else {
-                print("  ⚠️  SDK has \(missing.count) Swift module(s) not in our extraction:")
-                for module in missing.sorted() {
-                    print("    - \(module)")
+            let internalPrefixes = ["_", "Swift"]
+            // Curate the "real" private-module names we explicitly want
+            // to silence — they exist as .swiftmodule but aren't user-facing
+            // and aren't part of cupertino's apple-docs corpus.
+            let silencedModules: Set<String> = [
+                "SwiftOnoneSupport", "SwiftShims", "Runtime", "SwiftUICore",
+                "DeveloperToolsSupport", "AppleArchivePrivate", "Concurrency",
+            ]
+            for target in targets {
+                print()
+                print("Validating against \(target.targetTriple) (.swiftmodule ground truth)…")
+                let groundTruth = Set((try? SDKModuleEnumerator.swiftModules(at: target.sdkPath)) ?? [])
+                let missing = groundTruth.subtracting(extractedModules)
+                    .filter { name in
+                        !silencedModules.contains(name)
+                            && !internalPrefixes.contains(where: { name.hasPrefix($0) && name != "Swift" })
+                    }
+                if missing.isEmpty {
+                    print("  ✅ All user-facing modules covered")
+                } else {
+                    print("  ⚠️  \(missing.count) module(s) present in SDK but not extracted:")
+                    for module in missing.sorted() {
+                        print("    - \(module)")
+                    }
+                    print("  Consider adding entries to FrameworkModuleMap.curated for these.")
                 }
-                print("  Consider adding entries to FrameworkModuleMap.curated for these.")
             }
         }
 
         // Write manifest.
+        let targetEntries: [Manifest.TargetEntry] = targets.map {
+            Manifest.TargetEntry(
+                targetTriple: $0.targetTriple,
+                sdkPath: $0.sdkPath,
+                sdkVersion: readSDKVersion(at: $0.sdkPath) ?? "unknown"
+            )
+        }
         let manifest = Manifest(
             generatedAt: ISO8601DateFormatter().string(from: Date()),
             swiftVersion: (try? await runCapture("/usr/bin/xcrun", ["swift", "--version"])) ?? "unknown",
-            sdkVersion: readSDKVersion(at: resolvedSDK) ?? "unknown",
-            sdkPath: resolvedSDK,
-            targetTriple: target,
+            targets: targetEntries,
             results: results
         )
         let manifestURL = outputURL.appendingPathComponent("manifest.json")

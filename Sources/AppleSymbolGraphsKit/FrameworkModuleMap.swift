@@ -44,6 +44,24 @@ public enum FrameworkModuleMap {
         Array(curated.keys).sorted()
     }
 
+    /// Slugs that appear in cupertino's apple-docs corpus but cannot be
+    /// extracted as Swift modules from any Xcode SDK, mapped to a short
+    /// human-readable reason. The extractor short-circuits these with
+    /// `Status.skipped` so they don't show up as FAILs in the manifest.
+    ///
+    /// Update only with evidence — a slug here means we've verified the
+    /// framework is genuinely not a Swift module in the SDK family.
+    public static let knownNonExtractable: [String: String] = [
+        "appstoreserverapi":   "server-side REST API, no client Swift module in any SDK",
+        "carekit":             "separate open-source SPM package (carekit-apple/CareKit), not bundled with Xcode SDKs",
+        "docc":                "documentation compiler tool, not a Swift module",
+        "photokit":            "marketing alias for the Photos framework — use slug 'photos' (module 'Photos') instead",
+        "realitycomposerpro":  "Xcode-bundled tool, not a Swift module",
+        "sirikit":             "deprecated; functionality moved to Intents + IntentsUI",
+        "testing":             "swift-testing package distributed via swift-package-manager, not the platform SDK",
+        "xctest":              "lives at Xcode platform Developer/Library/Frameworks, outside the SDK module search path",
+    ]
+
     /// Default uppercase-first transformation. Used as the fallback
     /// when no curated entry exists. Handles single-word slugs
     /// correctly (`foundation` → `Foundation`); fails on multi-word
@@ -137,7 +155,7 @@ public enum FrameworkModuleMap {
         "metalperformanceshadersgraph": "MetalPerformanceShadersGraph",
         "modelio": "ModelIO",
         "realitykit": "RealityKit",
-        "realitycomposerpro": "RealityComposerPro",
+        // "realitycomposerpro": Xcode-bundled tool, see knownNonExtractable.
         "carplay": "CarPlay",
         "callkit": "CallKit",
         "messages": "Messages",
@@ -168,7 +186,7 @@ public enum FrameworkModuleMap {
         "security": "Security",
         "securityfoundation": "SecurityFoundation",
         "securityinterface": "SecurityInterface",
-        "appstoreserverapi": "AppStoreServerAPI",
+        // "appstoreserverapi": server-side REST, see knownNonExtractable.
 
         // MARK: - Sensors / Hardware / IO
         "sensorkit": "SensorKit",
@@ -212,7 +230,7 @@ public enum FrameworkModuleMap {
         // MARK: - Health / Care
         "healthkit": "HealthKit",
         "healthkitui": "HealthKitUI",
-        "carekit": "CareKit",
+        // "carekit": separate SPM package, see knownNonExtractable.
 
         // MARK: - System / Configuration
         "systemconfiguration": "SystemConfiguration",
@@ -228,7 +246,7 @@ public enum FrameworkModuleMap {
         "appintents": "AppIntents",
         "intents": "Intents",
         "intentsui": "IntentsUI",
-        "sirikit": "SiriKit",
+        // "sirikit": deprecated, functionality in Intents, see knownNonExtractable.
         "activitykit": "ActivityKit",
         "backgroundtasks": "BackgroundTasks",
         "lockedcameracapture": "LockedCameraCapture",
@@ -254,7 +272,10 @@ public enum FrameworkModuleMap {
         "multipeerconnectivity": "MultipeerConnectivity",
         "photos": "Photos",
         "photosui": "PhotosUI",
-        "photokit": "PhotoKit",
+        // "photokit" is Apple's marketing alias for the Photos framework;
+        // there is no PhotoKit Swift module. The docs page exists; the
+        // slug is intentionally absent so it falls into knownNonExtractable
+        // routing (or you point your consumer at the `photos` corpus entry).
         "sharedwithyou": "SharedWithYou",
         "sharedwithyoucore": "SharedWithYouCore",
 
@@ -276,20 +297,103 @@ public enum FrameworkModuleMap {
 
         // MARK: - JavaScript / Doc / Misc
         "javascriptcore": "JavaScriptCore",
-        "docc": "DocC",
+        // "docc": tool not module, see knownNonExtractable.
         "accelerate": "Accelerate",
         "accessibility": "Accessibility",
         "compression": "Compression",
         "virtualization": "Virtualization",
         "workoutkit": "WorkoutKit",
         "swiftdata": "SwiftData",
-        "testing": "Testing",
+        // "testing": swift-testing package, see knownNonExtractable.
         "opencl": "OpenCL",
         "opengles": "OpenGLES",
         "opendirectory": "OpenDirectory",
         "classkit": "ClassKit",
         "classkitui": "ClassKitUI",
-        "xctest": "XCTest",
+        // "xctest": Xcode-platform-only, see knownNonExtractable.
         "xpc": "XPC",
+
+        // MARK: - System-level + utilities (bash-discovered, Swift-missing fill-in)
+        "accounts": "Accounts",
+        "automator": "Automator",
+        "collaboration": "Collaboration",
+        "gss": "GSS",
+        "hypervisor": "Hypervisor",
+        "matter": "Matter",
+        "quartz": "Quartz",
+        "system": "System",
+        // Apple ships these modules in all-lowercase (not PascalCase):
+        "dnssd": "dnssd",
+        "simd": "simd",
+        "vmnet": "vmnet",
+        "xcselect": "xcselect",
+
+        // MARK: - SDK drift fill-in (modules present in *.swiftmodule but
+        // previously missing from this table; surfaced by the validator
+        // step in cupertino-symbolgraphs-gen)
+        "mediaextension": "MediaExtension",
+        "permissionkit": "PermissionKit",
+        "realityfoundation": "RealityFoundation",
+        "relevancekit": "RelevanceKit",
+        "securityui": "SecurityUI",
+        "sensitivecontentanalysis": "SensitiveContentAnalysis",
+        "stickerkit": "StickerKit",
+        "telephonymessagingkit": "TelephonyMessagingKit",
+        "videosubscriberaccount": "VideoSubscriberAccount",
+        "wifiaware": "WiFiAware",
+        "ituneslibrary": "iTunesLibrary",
+
+        // MARK: - SDK drift round 2 (macOS-side, surfaced after the
+        // dual-target run on Xcode 26.5 / Swift 6.3.2 / SDK 26.4)
+        "audioaccessorykit": "AudioAccessoryKit",
+        "automaticassessmentconfiguration": "AutomaticAssessmentConfiguration",
+        "backgroundassets": "BackgroundAssets",
+        "carkey": "CarKey",
+        "compositorservices": "CompositorServices",
+        "cryptotokenkit": "CryptoTokenKit",
+        "declaredagerange": "DeclaredAgeRange",
+        "deviceactivity": "DeviceActivity",
+        "devicediscoveryextension": "DeviceDiscoveryExtension",
+        "dockkit": "DockKit",
+        "fskit": "FSKit",
+        "financekit": "FinanceKit",
+        "financekitui": "FinanceKitUI",
+        "foundationmodels": "FoundationModels",
+        "gamesave": "GameSave",
+        "geotoolbox": "GeoToolbox",
+        "identitydocumentservices": "IdentityDocumentServices",
+        "identitydocumentservicesui": "IdentityDocumentServicesUI",
+        "imageplayground": "ImagePlayground",
+        "immersivemediasupport": "ImmersiveMediaSupport",
+        "lightweightcoderequirements": "LightweightCodeRequirements",
+        "livecommunicationkit": "LiveCommunicationKit",
+        "liveexecutionresultsruntime": "LiveExecutionResultsRuntime",
+        "localauthenticationembeddedui": "LocalAuthenticationEmbeddedUI",
+        "managedappdistribution": "ManagedAppDistribution",
+        "mattersupport": "MatterSupport",
+
+        // MARK: - SDK drift round 2 (iOS-only additions)
+        "accessoryliveactivities": "AccessoryLiveActivities",
+        "accessorynotifications": "AccessoryNotifications",
+        "accessorysetupkit": "AccessorySetupKit",
+        "accessorytransportextension": "AccessoryTransportExtension",
+        "adattributionkit": "AdAttributionKit",
+        "alarmkit": "AlarmKit",
+        "appmigrationkit": "AppMigrationKit",
+        "assetslibrary": "AssetsLibrary",
+        "assignables": "Assignables",
+        "automateddeviceenrollment": "AutomatedDeviceEnrollment",
+        "clockkit": "ClockKit",
+        "contactprovider": "ContactProvider",
+        "devicediscoveryui": "DeviceDiscoveryUI",
+        "energykit": "EnergyKit",
+        "journalingsuggestions": "JournalingSuggestions",
+        "managedapp": "ManagedApp",
+        "mapkitswiftbridge": "MapKitSwiftBridge",
+        "marketplacekit": "MarketplaceKit",
+        "secureelementcredential": "SecureElementCredential",
+        "servicesaccountlinking": "ServicesAccountLinking",
+        "wifiinfrastructure": "WiFiInfrastructure",
+        "wirelessinsights": "WirelessInsights",
     ]
 }

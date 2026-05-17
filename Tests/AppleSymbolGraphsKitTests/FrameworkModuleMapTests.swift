@@ -1,4 +1,5 @@
 @testable import AppleSymbolGraphsKit
+import Foundation
 import Testing
 
 @Suite("FrameworkModuleMap — curated mapper")
@@ -12,6 +13,57 @@ struct FrameworkModuleMapTests {
         #expect(FrameworkModuleMap.moduleName(for: "applearchive") == "AppleArchive")
         #expect(FrameworkModuleMap.moduleName(for: "mlcompute") == "MLCompute")
         #expect(FrameworkModuleMap.moduleName(for: "opencl") == "OpenCL")
+    }
+
+    @Test("Resolves all-lowercase Apple modules verbatim (no PascalCase)")
+    func lowercaseModules() {
+        // Apple ships these as lowercase Swift module names.
+        #expect(FrameworkModuleMap.moduleName(for: "simd") == "simd")
+        #expect(FrameworkModuleMap.moduleName(for: "dnssd") == "dnssd")
+        #expect(FrameworkModuleMap.moduleName(for: "vmnet") == "vmnet")
+        #expect(FrameworkModuleMap.moduleName(for: "xcselect") == "xcselect")
+        #expect(FrameworkModuleMap.moduleName(for: "os") == "os")
+    }
+
+    @Test("Resolves SDK-drift fill-in slugs")
+    func driftFillIn() {
+        #expect(FrameworkModuleMap.moduleName(for: "permissionkit") == "PermissionKit")
+        #expect(FrameworkModuleMap.moduleName(for: "realityfoundation") == "RealityFoundation")
+        #expect(FrameworkModuleMap.moduleName(for: "wifiaware") == "WiFiAware")
+        #expect(FrameworkModuleMap.moduleName(for: "ituneslibrary") == "iTunesLibrary")
+        #expect(FrameworkModuleMap.moduleName(for: "sensitivecontentanalysis") == "SensitiveContentAnalysis")
+    }
+
+    @Test("Curated map covers cupertino's core surface (≥225 entries)")
+    func curatedSizeFloor() {
+        // Floor catches accidental shrinkage. Bump as we extend.
+        #expect(FrameworkModuleMap.curated.count >= 225, "curated entries dropped — found \(FrameworkModuleMap.curated.count)")
+    }
+
+    @Test("knownNonExtractable carries human-readable reasons")
+    func nonExtractableHasReasons() {
+        for (slug, reason) in FrameworkModuleMap.knownNonExtractable {
+            #expect(!slug.isEmpty, "empty slug in knownNonExtractable")
+            #expect(reason.count >= 20, "knownNonExtractable[\(slug)] reason too terse: '\(reason)'")
+        }
+    }
+
+    @Test("knownNonExtractable covers the residual FAILs we verified")
+    func nonExtractableCoversKnownResiduals() {
+        let residuals = ["appstoreserverapi", "carekit", "docc", "photokit",
+                         "realitycomposerpro", "sirikit", "testing", "xctest"]
+        for slug in residuals {
+            #expect(FrameworkModuleMap.knownNonExtractable[slug] != nil, "\(slug) missing from knownNonExtractable")
+        }
+    }
+
+    @Test("knownNonExtractable is disjoint from curated (no double-routing)")
+    func nonExtractableDisjointFromCurated() {
+        // A slug should be either extractable (curated/PascalCase) OR
+        // known-non-extractable, never both.
+        let overlap = Set(FrameworkModuleMap.knownNonExtractable.keys)
+            .intersection(Set(FrameworkModuleMap.curated.keys))
+        #expect(overlap.isEmpty, "slugs in both curated and knownNonExtractable: \(overlap.sorted())")
     }
 
     @Test("Falls back to PascalCase for slugs not in the curated table")
