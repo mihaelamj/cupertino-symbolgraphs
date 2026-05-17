@@ -66,6 +66,43 @@ struct FrameworkModuleMapTests {
         #expect(overlap.isEmpty, "slugs in both curated and knownNonExtractable: \(overlap.sorted())")
     }
 
+    @Test("pascalCaseFallback handles empty input + idempotent for already-PascalCase")
+    func pascalCaseFallbackEdge() {
+        #expect(FrameworkModuleMap.pascalCaseFallback("") == "")
+        #expect(FrameworkModuleMap.pascalCaseFallback("foo") == "Foo")
+        #expect(FrameworkModuleMap.pascalCaseFallback("F") == "F", "single uppercase char stays put")
+    }
+
+    @Test("Public API surface is stable for downstream consumers")
+    func publicAPI() {
+        // These calls compile + return — proves the access levels needed
+        // by cupertino-symbolgraphs-gen (a sibling target) are exported.
+        _ = FrameworkModuleMap.curated["foundation"]
+        _ = FrameworkModuleMap.knownNonExtractable["sirikit"]
+        _ = FrameworkModuleMap.allCuratedSlugs
+        _ = FrameworkModuleMap.pascalCaseFallback("test")
+        _ = FrameworkModuleMap.moduleName(for: "foundation")
+    }
+
+    @Test("knownNonExtractable.count matches the documented 9-slug ship state")
+    func nonExtractableCountStable() {
+        // v0.1.0 shipped with exactly 9 known-non-extractable slugs.
+        // Bump this floor as future slugs are added.
+        #expect(FrameworkModuleMap.knownNonExtractable.count >= 9,
+                "knownNonExtractable shrunk — \(FrameworkModuleMap.knownNonExtractable.count) entries")
+    }
+
+    @Test("Every knownNonExtractable slug is reachable via moduleName(for:) too")
+    func nonExtractableModuleNameReachable() {
+        // Even though the slug is short-circuited at extraction time,
+        // moduleName(for:) should still return the canonical PascalCase
+        // form so downstream tools can render a display name.
+        for slug in FrameworkModuleMap.knownNonExtractable.keys {
+            #expect(FrameworkModuleMap.moduleName(for: slug) != nil,
+                    "moduleName(for: '\(slug)') returned nil")
+        }
+    }
+
     @Test("Falls back to PascalCase for slugs not in the curated table")
     func pascalCaseFallback() {
         // Single-word slugs with no special casing → PascalCase fallback works.
