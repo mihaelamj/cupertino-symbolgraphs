@@ -50,8 +50,8 @@ struct FrameworkModuleMapTests {
 
     @Test("knownNonExtractable covers the residual FAILs we verified")
     func nonExtractableCoversKnownResiduals() {
-        let residuals = ["appstoreserverapi", "carekit", "docc", "photokit",
-                         "realitycomposerpro", "sirikit", "testing", "xctest"]
+        let residuals = ["appstoreserverapi", "carekit", "docc", "mapkitswiftbridge",
+                         "photokit", "realitycomposerpro", "sirikit", "testing", "xctest"]
         for slug in residuals {
             #expect(FrameworkModuleMap.knownNonExtractable[slug] != nil, "\(slug) missing from knownNonExtractable")
         }

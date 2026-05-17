@@ -1,0 +1,2249 @@
+{
+  "generatedAt" : "2026-05-17T22:44:47Z",
+  "manifestVersion" : 3,
+  "results" : [
+    {
+      "fileCount" : 2,
+      "moduleName" : "Accelerate",
+      "sizeBytes" : 22089967,
+      "slug" : "accelerate",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Accessibility",
+      "sizeBytes" : 871820,
+      "slug" : "accessibility",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AccessoryLiveActivities",
+      "sizeBytes" : 86692,
+      "slug" : "accessoryliveactivities",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AccessoryNotifications",
+      "sizeBytes" : 448121,
+      "slug" : "accessorynotifications",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AccessorySetupKit",
+      "sizeBytes" : 563365,
+      "slug" : "accessorysetupkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "AccessoryTransportExtension",
+      "sizeBytes" : 240346,
+      "slug" : "accessorytransportextension",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Accounts",
+      "sizeBytes" : 127706,
+      "slug" : "accounts",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ActivityKit",
+      "sizeBytes" : 340,
+      "slug" : "activitykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "AdAttributionKit",
+      "sizeBytes" : 165778,
+      "slug" : "adattributionkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AlarmKit",
+      "sizeBytes" : 740011,
+      "slug" : "alarmkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 9,
+      "moduleName" : "AppIntents",
+      "sizeBytes" : 20492579,
+      "slug" : "appintents",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 8,
+      "moduleName" : "AppKit",
+      "sizeBytes" : 28038026,
+      "slug" : "appkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AppleArchive",
+      "sizeBytes" : 1956648,
+      "slug" : "applearchive",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AppMigrationKit",
+      "sizeBytes" : 208246,
+      "slug" : "appmigrationkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "server-side REST API, no client Swift module in any SDK",
+      "fileCount" : 0,
+      "moduleName" : "Appstoreserverapi",
+      "sizeBytes" : 0,
+      "slug" : "appstoreserverapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "ARKit",
+      "sizeBytes" : 288138,
+      "slug" : "arkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "AssetsLibrary",
+      "sizeBytes" : 199760,
+      "slug" : "assetslibrary",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Assignables",
+      "sizeBytes" : 9463932,
+      "slug" : "assignables",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AudioAccessoryKit",
+      "sizeBytes" : 346,
+      "slug" : "audioaccessorykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AudioToolbox",
+      "sizeBytes" : 6012609,
+      "slug" : "audiotoolbox",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AudioUnit",
+      "sizeBytes" : 1181,
+      "slug" : "audiounit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "AuthenticationServices",
+      "sizeBytes" : 8363649,
+      "slug" : "authenticationservices",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "AutomatedDeviceEnrollment",
+      "sizeBytes" : 5324,
+      "slug" : "automateddeviceenrollment",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AutomaticAssessmentConfiguration",
+      "sizeBytes" : 190381,
+      "slug" : "automaticassessmentconfiguration",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Automator",
+      "sizeBytes" : 250297,
+      "slug" : "automator",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "AVFAudio",
+      "sizeBytes" : 1991957,
+      "slug" : "avfaudio",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "AVFoundation",
+      "sizeBytes" : 9476523,
+      "slug" : "avfoundation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "AVKit",
+      "sizeBytes" : 5034306,
+      "slug" : "avkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "AVRouting",
+      "sizeBytes" : 11753,
+      "slug" : "avrouting",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "BackgroundAssets",
+      "sizeBytes" : 471658,
+      "slug" : "backgroundassets",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "BackgroundTasks",
+      "sizeBytes" : 332,
+      "slug" : "backgroundtasks",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "BrowserEngineCore",
+      "sizeBytes" : 1215,
+      "slug" : "browserenginecore",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "BrowserEngineKit",
+      "sizeBytes" : 435647,
+      "slug" : "browserenginekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "BrowserKit",
+      "sizeBytes" : 282909,
+      "slug" : "browserkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CallKit",
+      "sizeBytes" : 15738,
+      "slug" : "callkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "separate open-source SPM package (carekit-apple\/CareKit), not bundled with Xcode SDKs",
+      "fileCount" : 0,
+      "moduleName" : "Carekit",
+      "sizeBytes" : 0,
+      "slug" : "carekit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CarKey",
+      "sizeBytes" : 237542,
+      "slug" : "carkey",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CarPlay",
+      "sizeBytes" : 1989055,
+      "slug" : "carplay",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CFNetwork",
+      "sizeBytes" : 778083,
+      "slug" : "cfnetwork",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 5,
+      "moduleName" : "Charts",
+      "sizeBytes" : 47082820,
+      "slug" : "charts",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Cinematic",
+      "sizeBytes" : 424155,
+      "slug" : "cinematic",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "ClassKit",
+      "sizeBytes" : 304380,
+      "slug" : "classkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "ClassKitUI",
+      "sizeBytes" : 9336116,
+      "slug" : "classkitui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ClockKit",
+      "sizeBytes" : 21669,
+      "slug" : "clockkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "CloudKit",
+      "sizeBytes" : 6035992,
+      "slug" : "cloudkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Collaboration",
+      "sizeBytes" : 62929,
+      "slug" : "collaboration",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Combine",
+      "sizeBytes" : 76544412,
+      "slug" : "combine",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CompositorServices",
+      "sizeBytes" : 710257,
+      "slug" : "compositorservices",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Compression",
+      "sizeBytes" : 164204,
+      "slug" : "compression",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ContactProvider",
+      "sizeBytes" : 196620,
+      "slug" : "contactprovider",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Contacts",
+      "sizeBytes" : 911420,
+      "slug" : "contacts",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ContactsUI",
+      "sizeBytes" : 23412,
+      "slug" : "contactsui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CoreAudio",
+      "sizeBytes" : 2417529,
+      "slug" : "coreaudio",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreAudioKit",
+      "sizeBytes" : 150216,
+      "slug" : "coreaudiokit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreAudioTypes",
+      "sizeBytes" : 897542,
+      "slug" : "coreaudiotypes",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreBluetooth",
+      "sizeBytes" : 788213,
+      "slug" : "corebluetooth",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CoreData",
+      "sizeBytes" : 2264856,
+      "slug" : "coredata",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreFoundation",
+      "sizeBytes" : 5663014,
+      "slug" : "corefoundation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreGraphics",
+      "sizeBytes" : 4077308,
+      "slug" : "coregraphics",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreHaptics",
+      "sizeBytes" : 373758,
+      "slug" : "corehaptics",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreHID",
+      "sizeBytes" : 3464237,
+      "slug" : "corehid",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CoreImage",
+      "sizeBytes" : 1395281,
+      "slug" : "coreimage",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreLocation",
+      "sizeBytes" : 880124,
+      "slug" : "corelocation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreLocationUI",
+      "sizeBytes" : 4367394,
+      "slug" : "corelocationui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CoreMedia",
+      "sizeBytes" : 9024540,
+      "slug" : "coremedia",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreMediaIO",
+      "sizeBytes" : 749688,
+      "slug" : "coremediaio",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreMIDI",
+      "sizeBytes" : 4864459,
+      "slug" : "coremidi",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreML",
+      "sizeBytes" : 4678644,
+      "slug" : "coreml",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreMotion",
+      "sizeBytes" : 368472,
+      "slug" : "coremotion",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "CoreNFC",
+      "sizeBytes" : 1412146,
+      "slug" : "corenfc",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreServices",
+      "sizeBytes" : 5906159,
+      "slug" : "coreservices",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreSpotlight",
+      "sizeBytes" : 1341552,
+      "slug" : "corespotlight",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CoreTelephony",
+      "sizeBytes" : 44079,
+      "slug" : "coretelephony",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreText",
+      "sizeBytes" : 3636677,
+      "slug" : "coretext",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CoreTransferable",
+      "sizeBytes" : 1211524,
+      "slug" : "coretransferable",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreVideo",
+      "sizeBytes" : 1936421,
+      "slug" : "corevideo",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CoreWLAN",
+      "sizeBytes" : 418682,
+      "slug" : "corewlan",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "CreateML",
+      "sizeBytes" : 7506800,
+      "slug" : "createml",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "CreateMLComponents",
+      "sizeBytes" : 22530799,
+      "slug" : "createmlcomponents",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CryptoKit",
+      "sizeBytes" : 4017657,
+      "slug" : "cryptokit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "CryptoTokenKit",
+      "sizeBytes" : 677871,
+      "slug" : "cryptotokenkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Darwin",
+      "sizeBytes" : 36536364,
+      "slug" : "darwin",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "DataDetection",
+      "sizeBytes" : 282001,
+      "slug" : "datadetection",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "DeclaredAgeRange",
+      "sizeBytes" : 186821,
+      "slug" : "declaredagerange",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "DeviceActivity",
+      "sizeBytes" : 17380,
+      "slug" : "deviceactivity",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "DeviceCheck",
+      "sizeBytes" : 80155,
+      "slug" : "devicecheck",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "DeviceDiscoveryExtension",
+      "sizeBytes" : 270787,
+      "slug" : "devicediscoveryextension",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "DeviceDiscoveryUI",
+      "sizeBytes" : 8674119,
+      "slug" : "devicediscoveryui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Dispatch",
+      "sizeBytes" : 2532218,
+      "slug" : "dispatch",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Distributed",
+      "sizeBytes" : 371160,
+      "slug" : "distributed",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "dnssd",
+      "sizeBytes" : 377466,
+      "slug" : "dnssd",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation compiler tool, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Docc",
+      "sizeBytes" : 0,
+      "slug" : "docc",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "DockKit",
+      "sizeBytes" : 1079758,
+      "slug" : "dockkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "EnergyKit",
+      "sizeBytes" : 603416,
+      "slug" : "energykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "EventKit",
+      "sizeBytes" : 792361,
+      "slug" : "eventkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "EventKitUI",
+      "sizeBytes" : 96305,
+      "slug" : "eventkitui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ExtensionFoundation",
+      "sizeBytes" : 357691,
+      "slug" : "extensionfoundation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "ExtensionKit",
+      "sizeBytes" : 146278,
+      "slug" : "extensionkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "ExternalAccessory",
+      "sizeBytes" : 186878,
+      "slug" : "externalaccessory",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "FamilyControls",
+      "sizeBytes" : 43343,
+      "slug" : "familycontrols",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "FileProvider",
+      "sizeBytes" : 1627584,
+      "slug" : "fileprovider",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "FileProviderUI",
+      "sizeBytes" : 37101,
+      "slug" : "fileproviderui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "FinanceKit",
+      "sizeBytes" : 339,
+      "slug" : "financekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "FinanceKitUI",
+      "sizeBytes" : 341,
+      "slug" : "financekitui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "FinderSync",
+      "sizeBytes" : 67663,
+      "slug" : "findersync",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 10,
+      "moduleName" : "Foundation",
+      "sizeBytes" : 51249995,
+      "slug" : "foundation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "FoundationModels",
+      "sizeBytes" : 2349056,
+      "slug" : "foundationmodels",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "FoveatedStreaming",
+      "sizeBytes" : 4719894,
+      "slug" : "foveatedstreaming",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-xros2"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "FSKit",
+      "sizeBytes" : 1486717,
+      "slug" : "fskit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "GameController",
+      "sizeBytes" : 2117470,
+      "slug" : "gamecontroller",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "GameKit",
+      "sizeBytes" : 1979111,
+      "slug" : "gamekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "GameplayKit",
+      "sizeBytes" : 844578,
+      "slug" : "gameplaykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "GameSave",
+      "sizeBytes" : 103456,
+      "slug" : "gamesave",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "GeoToolbox",
+      "sizeBytes" : 84096,
+      "slug" : "geotoolbox",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "GLKit",
+      "sizeBytes" : 899884,
+      "slug" : "glkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "GroupActivities",
+      "sizeBytes" : 985861,
+      "slug" : "groupactivities",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "GSS",
+      "sizeBytes" : 521162,
+      "slug" : "gss",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "HealthKit",
+      "sizeBytes" : 5382324,
+      "slug" : "healthkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "HealthKitUI",
+      "sizeBytes" : 54124,
+      "slug" : "healthkitui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "HomeKit",
+      "sizeBytes" : 6604474,
+      "slug" : "homekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "hvf",
+      "sizeBytes" : 875617,
+      "slug" : "hvf",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Hypervisor",
+      "sizeBytes" : 2399310,
+      "slug" : "hypervisor",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IdentityDocumentServices",
+      "sizeBytes" : 135347,
+      "slug" : "identitydocumentservices",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IdentityDocumentServicesUI",
+      "sizeBytes" : 24659,
+      "slug" : "identitydocumentservicesui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IdentityLookup",
+      "sizeBytes" : 69673,
+      "slug" : "identitylookup",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IdentityLookupUI",
+      "sizeBytes" : 13337,
+      "slug" : "identitylookupui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ImageCaptureCore",
+      "sizeBytes" : 1374095,
+      "slug" : "imagecapturecore",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ImageIO",
+      "sizeBytes" : 968932,
+      "slug" : "imageio",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "ImagePlayground",
+      "sizeBytes" : 282406,
+      "slug" : "imageplayground",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ImmersiveMediaSupport",
+      "sizeBytes" : 697774,
+      "slug" : "immersivemediasupport",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "Intents",
+      "sizeBytes" : 1960566,
+      "slug" : "intents",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "IntentsUI",
+      "sizeBytes" : 64100,
+      "slug" : "intentsui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "IOBluetooth",
+      "sizeBytes" : 6207309,
+      "slug" : "iobluetooth",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IOBluetoothUI",
+      "sizeBytes" : 198413,
+      "slug" : "iobluetoothui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IOKit",
+      "sizeBytes" : 970558,
+      "slug" : "iokit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IOSurface",
+      "sizeBytes" : 514987,
+      "slug" : "iosurface",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "IOUSBHost",
+      "sizeBytes" : 1035109,
+      "slug" : "iousbhost",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "iTunesLibrary",
+      "sizeBytes" : 352043,
+      "slug" : "ituneslibrary",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "JavaScriptCore",
+      "sizeBytes" : 700566,
+      "slug" : "javascriptcore",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "JournalingSuggestions",
+      "sizeBytes" : 4675926,
+      "slug" : "journalingsuggestions",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "LightweightCodeRequirements",
+      "sizeBytes" : 737776,
+      "slug" : "lightweightcoderequirements",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "LinkPresentation",
+      "sizeBytes" : 190461,
+      "slug" : "linkpresentation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "LiveCommunicationKit",
+      "sizeBytes" : 349,
+      "slug" : "livecommunicationkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "LiveExecutionResultsRuntime",
+      "sizeBytes" : 356,
+      "slug" : "liveexecutionresultsruntime",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "LocalAuthentication",
+      "sizeBytes" : 5078552,
+      "slug" : "localauthentication",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "LocalAuthenticationEmbeddedUI",
+      "sizeBytes" : 17265,
+      "slug" : "localauthenticationembeddedui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "LockedCameraCapture",
+      "sizeBytes" : 86469,
+      "slug" : "lockedcameracapture",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MailKit",
+      "sizeBytes" : 396311,
+      "slug" : "mailkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ManagedApp",
+      "sizeBytes" : 93023,
+      "slug" : "managedapp",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "ManagedAppDistribution",
+      "sizeBytes" : 14405058,
+      "slug" : "managedappdistribution",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ManagedSettings",
+      "sizeBytes" : 344,
+      "slug" : "managedsettings",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ManagedSettingsUI",
+      "sizeBytes" : 61586,
+      "slug" : "managedsettingsui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 7,
+      "moduleName" : "MapKit",
+      "sizeBytes" : 54401238,
+      "slug" : "mapkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "nested inside MapKit.framework (MapKit.framework\/MapKitSwiftBridge.framework\/Modules\/), not standalone-extractable; surface lives under slug 'mapkit'",
+      "fileCount" : 0,
+      "moduleName" : "Mapkitswiftbridge",
+      "sizeBytes" : 0,
+      "slug" : "mapkitswiftbridge",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "MarketplaceKit",
+      "sizeBytes" : 345200,
+      "slug" : "marketplacekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Matter",
+      "sizeBytes" : 99701441,
+      "slug" : "matter",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MatterSupport",
+      "sizeBytes" : 316836,
+      "slug" : "mattersupport",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MediaAccessibility",
+      "sizeBytes" : 177431,
+      "slug" : "mediaaccessibility",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "MediaExtension",
+      "sizeBytes" : 604843,
+      "slug" : "mediaextension",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "MediaPlayer",
+      "sizeBytes" : 471590,
+      "slug" : "mediaplayer",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MediaToolbox",
+      "sizeBytes" : 58522,
+      "slug" : "mediatoolbox",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Messages",
+      "sizeBytes" : 310725,
+      "slug" : "messages",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "MessageUI",
+      "sizeBytes" : 146119,
+      "slug" : "messageui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Metal",
+      "sizeBytes" : 7940053,
+      "slug" : "metal",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MetalFX",
+      "sizeBytes" : 314318,
+      "slug" : "metalfx",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MetalKit",
+      "sizeBytes" : 277868,
+      "slug" : "metalkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MetalPerformanceShaders",
+      "sizeBytes" : 6485464,
+      "slug" : "metalperformanceshaders",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MetalPerformanceShadersGraph",
+      "sizeBytes" : 2423296,
+      "slug" : "metalperformanceshadersgraph",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MetricKit",
+      "sizeBytes" : 322325,
+      "slug" : "metrickit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MLCompute",
+      "sizeBytes" : 1444611,
+      "slug" : "mlcompute",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ModelIO",
+      "sizeBytes" : 1501427,
+      "slug" : "modelio",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "MultipeerConnectivity",
+      "sizeBytes" : 232721,
+      "slug" : "multipeerconnectivity",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "MusicKit",
+      "sizeBytes" : 9003391,
+      "slug" : "musickit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "NaturalLanguage",
+      "sizeBytes" : 637216,
+      "slug" : "naturallanguage",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "NearbyInteraction",
+      "sizeBytes" : 346,
+      "slug" : "nearbyinteraction",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "Network",
+      "sizeBytes" : 6989617,
+      "slug" : "network",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "NetworkExtension",
+      "sizeBytes" : 1654193,
+      "slug" : "networkextension",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "NotificationCenter",
+      "sizeBytes" : 85538,
+      "slug" : "notificationcenter",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ObjectiveC",
+      "sizeBytes" : 624711,
+      "slug" : "objectivec",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Observation",
+      "sizeBytes" : 202006,
+      "slug" : "observation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "OpenCL",
+      "sizeBytes" : 1424362,
+      "slug" : "opencl",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "OpenDirectory",
+      "sizeBytes" : 998634,
+      "slug" : "opendirectory",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "OpenGLES",
+      "sizeBytes" : 2268991,
+      "slug" : "opengles",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "os",
+      "sizeBytes" : 835148,
+      "slug" : "os",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "OSLog",
+      "sizeBytes" : 211737,
+      "slug" : "oslog",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "PaperKit",
+      "sizeBytes" : 406144,
+      "slug" : "paperkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "PassKit",
+      "sizeBytes" : 6566093,
+      "slug" : "passkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "PDFKit",
+      "sizeBytes" : 1187175,
+      "slug" : "pdfkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "PencilKit",
+      "sizeBytes" : 850011,
+      "slug" : "pencilkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "PermissionKit",
+      "sizeBytes" : 9512120,
+      "slug" : "permissionkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "PHASE",
+      "sizeBytes" : 1097122,
+      "slug" : "phase",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "marketing alias for the Photos framework — use slug 'photos' (module 'Photos') instead",
+      "fileCount" : 0,
+      "moduleName" : "Photokit",
+      "sizeBytes" : 0,
+      "slug" : "photokit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Photos",
+      "sizeBytes" : 1407280,
+      "slug" : "photos",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 5,
+      "moduleName" : "PhotosUI",
+      "sizeBytes" : 5445076,
+      "slug" : "photosui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ProximityReader",
+      "sizeBytes" : 2381275,
+      "slug" : "proximityreader",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "PushKit",
+      "sizeBytes" : 50102,
+      "slug" : "pushkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "Quartz",
+      "sizeBytes" : 1095009,
+      "slug" : "quartz",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "QuartzCore",
+      "sizeBytes" : 1219209,
+      "slug" : "quartzcore",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "QuickLook",
+      "sizeBytes" : 196197,
+      "slug" : "quicklook",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "QuickLookThumbnailing",
+      "sizeBytes" : 231892,
+      "slug" : "quicklookthumbnailing",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "QuickLookUI",
+      "sizeBytes" : 118636,
+      "slug" : "quicklookui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Xcode-bundled tool, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Realitycomposerpro",
+      "sizeBytes" : 0,
+      "slug" : "realitycomposerpro",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 6,
+      "moduleName" : "RealityFoundation",
+      "sizeBytes" : 22635285,
+      "slug" : "realityfoundation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 6,
+      "moduleName" : "RealityKit",
+      "sizeBytes" : 15155440,
+      "slug" : "realitykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "RegexBuilder",
+      "sizeBytes" : 3090919,
+      "slug" : "regexbuilder",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "RelevanceKit",
+      "sizeBytes" : 72741,
+      "slug" : "relevancekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "ReplayKit",
+      "sizeBytes" : 193052,
+      "slug" : "replaykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "RoomPlan",
+      "sizeBytes" : 907832,
+      "slug" : "roomplan",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SafariServices",
+      "sizeBytes" : 221813,
+      "slug" : "safariservices",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SafetyKit",
+      "sizeBytes" : 119817,
+      "slug" : "safetykit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 6,
+      "moduleName" : "SceneKit",
+      "sizeBytes" : 7496267,
+      "slug" : "scenekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ScreenCaptureKit",
+      "sizeBytes" : 595081,
+      "slug" : "screencapturekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ScreenTime",
+      "sizeBytes" : 54814,
+      "slug" : "screentime",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 5,
+      "moduleName" : "SecureElementCredential",
+      "sizeBytes" : 389013,
+      "slug" : "secureelementcredential",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Security",
+      "sizeBytes" : 6919641,
+      "slug" : "security",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SecurityFoundation",
+      "sizeBytes" : 23103,
+      "slug" : "securityfoundation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "SecurityInterface",
+      "sizeBytes" : 249681,
+      "slug" : "securityinterface",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "SecurityUI",
+      "sizeBytes" : 17156,
+      "slug" : "securityui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SensitiveContentAnalysis",
+      "sizeBytes" : 38444,
+      "slug" : "sensitivecontentanalysis",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SensorKit",
+      "sizeBytes" : 338,
+      "slug" : "sensorkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ServiceManagement",
+      "sizeBytes" : 67332,
+      "slug" : "servicemanagement",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ServicesAccountLinking",
+      "sizeBytes" : 56457,
+      "slug" : "servicesaccountlinking",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "SharedWithYou",
+      "sizeBytes" : 266649,
+      "slug" : "sharedwithyou",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SharedWithYouCore",
+      "sizeBytes" : 132858,
+      "slug" : "sharedwithyoucore",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "ShazamKit",
+      "sizeBytes" : 536792,
+      "slug" : "shazamkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "simd",
+      "sizeBytes" : 6558772,
+      "slug" : "simd",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "deprecated; functionality moved to Intents + IntentsUI",
+      "fileCount" : 0,
+      "moduleName" : "Sirikit",
+      "sizeBytes" : 0,
+      "slug" : "sirikit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Social",
+      "sizeBytes" : 54288,
+      "slug" : "social",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SoundAnalysis",
+      "sizeBytes" : 123429,
+      "slug" : "soundanalysis",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "Spatial",
+      "sizeBytes" : 4493240,
+      "slug" : "spatial",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Speech",
+      "sizeBytes" : 1451916,
+      "slug" : "speech",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "SpriteKit",
+      "sizeBytes" : 6479503,
+      "slug" : "spritekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "StickerKit",
+      "sizeBytes" : 339,
+      "slug" : "stickerkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 6,
+      "moduleName" : "StoreKit",
+      "sizeBytes" : 76998485,
+      "slug" : "storekit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "Swift",
+      "sizeBytes" : 53477532,
+      "slug" : "swift",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 7,
+      "moduleName" : "SwiftData",
+      "sizeBytes" : 2265917,
+      "slug" : "swiftdata",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 7,
+      "moduleName" : "SwiftUI",
+      "sizeBytes" : 466886827,
+      "slug" : "swiftui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Symbols",
+      "sizeBytes" : 422328,
+      "slug" : "symbols",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "Synchronization",
+      "sizeBytes" : 3494940,
+      "slug" : "synchronization",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "System",
+      "sizeBytes" : 1429856,
+      "slug" : "system",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SystemConfiguration",
+      "sizeBytes" : 980968,
+      "slug" : "systemconfiguration",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "SystemExtensions",
+      "sizeBytes" : 161217,
+      "slug" : "systemextensions",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 6,
+      "moduleName" : "TabletopKit",
+      "sizeBytes" : 2042657,
+      "slug" : "tabletopkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-xros2"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "TabularData",
+      "sizeBytes" : 6031418,
+      "slug" : "tabulardata",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "TelephonyMessagingKit",
+      "sizeBytes" : 350,
+      "slug" : "telephonymessagingkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "swift-testing package distributed via swift-package-manager, not the platform SDK",
+      "fileCount" : 0,
+      "moduleName" : "Testing",
+      "sizeBytes" : 0,
+      "slug" : "testing",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "ThreadNetwork",
+      "sizeBytes" : 58483,
+      "slug" : "threadnetwork",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "TipKit",
+      "sizeBytes" : 5141605,
+      "slug" : "tipkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "Translation",
+      "sizeBytes" : 415145,
+      "slug" : "translation",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "TranslationUIProvider",
+      "sizeBytes" : 30765,
+      "slug" : "translationuiprovider",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 8,
+      "moduleName" : "UIKit",
+      "sizeBytes" : 27431585,
+      "slug" : "uikit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "UniformTypeIdentifiers",
+      "sizeBytes" : 489614,
+      "slug" : "uniformtypeidentifiers",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "UserNotifications",
+      "sizeBytes" : 709491,
+      "slug" : "usernotifications",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "UserNotificationsUI",
+      "sizeBytes" : 47210,
+      "slug" : "usernotificationsui",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "VideoSubscriberAccount",
+      "sizeBytes" : 353013,
+      "slug" : "videosubscriberaccount",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "VideoToolbox",
+      "sizeBytes" : 1847268,
+      "slug" : "videotoolbox",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Virtualization",
+      "sizeBytes" : 931832,
+      "slug" : "virtualization",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "Vision",
+      "sizeBytes" : 7958737,
+      "slug" : "vision",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "VisionEntitlementServices",
+      "sizeBytes" : 85901,
+      "slug" : "visionentitlementservices",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-xros2"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "VisionKit",
+      "sizeBytes" : 422205,
+      "slug" : "visionkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "VisualIntelligence",
+      "sizeBytes" : 27547,
+      "slug" : "visualintelligence",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "vmnet",
+      "sizeBytes" : 242286,
+      "slug" : "vmnet",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "WatchConnectivity",
+      "sizeBytes" : 184812,
+      "slug" : "watchconnectivity",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 3,
+      "moduleName" : "WatchKit",
+      "sizeBytes" : 4660090,
+      "slug" : "watchkit",
+      "status" : "ok",
+      "targetTriple" : "arm64_32-apple-watchos11"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "WeatherKit",
+      "sizeBytes" : 3864986,
+      "slug" : "weatherkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 5,
+      "moduleName" : "WebKit",
+      "sizeBytes" : 10493865,
+      "slug" : "webkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "WidgetKit",
+      "sizeBytes" : 15138178,
+      "slug" : "widgetkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "WiFiAware",
+      "sizeBytes" : 338,
+      "slug" : "wifiaware",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "WiFiInfrastructure",
+      "sizeBytes" : 1035492,
+      "slug" : "wifiinfrastructure",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "WirelessInsights",
+      "sizeBytes" : 188523,
+      "slug" : "wirelessinsights",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "fileCount" : 4,
+      "moduleName" : "WorkoutKit",
+      "sizeBytes" : 600110,
+      "slug" : "workoutkit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "xcselect",
+      "sizeBytes" : 11587,
+      "slug" : "xcselect",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "lives at Xcode platform Developer\/Library\/Frameworks, outside the SDK module search path",
+      "fileCount" : 0,
+      "moduleName" : "Xctest",
+      "sizeBytes" : 0,
+      "slug" : "xctest",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
+      "moduleName" : "XPC",
+      "sizeBytes" : 1239966,
+      "slug" : "xpc",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    }
+  ],
+  "summary" : {
+    "bytesPerTarget" : {
+      "arm64-apple-ios18" : 77058483,
+      "arm64-apple-macos15" : 1460567391,
+      "arm64-apple-xros2" : 6848452,
+      "arm64_32-apple-watchos11" : 4660090
+    },
+    "failedCount" : 0,
+    "okCount" : 265,
+    "skippedCount" : 9,
+    "slugsPerTarget" : {
+      "arm64-apple-ios18" : 40,
+      "arm64-apple-macos15" : 221,
+      "arm64-apple-xros2" : 3,
+      "arm64_32-apple-watchos11" : 1
+    },
+    "totalBytes" : 1549134416,
+    "totalSlugs" : 274
+  },
+  "swiftVersion" : "Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)",
+  "targets" : [
+    {
+      "sdkPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX26.5.sdk",
+      "sdkVersion" : "26.5",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "sdkPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/iPhoneOS.platform\/Developer\/SDKs\/iPhoneOS26.5.sdk",
+      "sdkVersion" : "26.5",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "sdkPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/WatchOS.platform\/Developer\/SDKs\/WatchOS26.5.sdk",
+      "sdkVersion" : "26.5",
+      "targetTriple" : "arm64_32-apple-watchos11"
+    },
+    {
+      "sdkPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/XROS.platform\/Developer\/SDKs\/XROS26.5.sdk",
+      "sdkVersion" : "26.5",
+      "targetTriple" : "arm64-apple-xros2"
+    }
+  ]
+}

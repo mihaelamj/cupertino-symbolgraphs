@@ -47,12 +47,12 @@ The binary reports per-25-slug progress, validates the result against each SDK's
 
 | Source | Purpose |
 |---|---|
-| `Sources/AppleSymbolGraphsKit/FrameworkModuleMap.swift` | Hand-curated `slug → Swift module name` table. 165+ entries. The source of truth for the extraction input list. |
-| `Sources/AppleSymbolGraphsKit/SymbolGraphExtractor.swift` | Wraps `xcrun swift symbolgraph-extract` for one slug at a time; tries curated → PascalCase → slug → uppercase variants in order; returns structured `ExtractionResult`. |
-| `Sources/AppleSymbolGraphsKit/SDKModuleEnumerator.swift` | Walks `<sdk>/usr/lib/swift` + `<sdk>/System/Library/{Frameworks,SubFrameworks,PrivateFrameworks}/*.framework/Modules/*.swiftmodule` to enumerate the SDK's authoritative Swift module list — the validation ground truth. |
-| `Sources/AppleSymbolGraphsKit/Manifest.swift` | Codable `manifest.json` schema with generation metadata + per-slug outcomes. |
-| `Sources/cupertino-symbolgraphs-gen/main.swift` | CLI binary (ArgumentParser) — orchestrates extraction + validation + manifest write. |
-| `Tests/AppleSymbolGraphsKitTests/` | Unit tests against the curated table, PascalCase fallback, variant ordering, de-duplication. |
+| `Sources/AppleSymbolGraphsKit/FrameworkModuleMap.swift` | Hand-curated `slug → Swift module name` table (225+ entries) + `knownNonExtractable` table mapping the 8 slugs that aren't Swift modules in any SDK (server-side REST, separate SPM packages, Xcode-bundled tools, deprecated frameworks) to human-readable reasons. The disjoint invariant is test-enforced. |
+| `Sources/AppleSymbolGraphsKit/SymbolGraphExtractor.swift` | Multi-target wrapper around `xcrun swift symbolgraph-extract`. For each `(sdk, target)` pair, tries `curated → PascalCase → slug → UPPERCASE` variants until first non-empty output. Short-circuits to `Status.skipped` when the slug is in `knownNonExtractable`. |
+| `Sources/AppleSymbolGraphsKit/SDKModuleEnumerator.swift` | Walks `<sdk>/usr/lib/swift` + `<sdk>/System/Library/{Frameworks,SubFrameworks,PrivateFrameworks}/*.framework/Modules/*.swiftmodule` to enumerate the SDK's authoritative Swift module list. Cross-SDK aware via `activeSDKPath(sdk:)`. |
+| `Sources/AppleSymbolGraphsKit/Manifest.swift` | Codable `manifest.json` schema (v3): per-corpus metadata, ordered `[TargetEntry]` list with versions, per-slug results, aggregate `(ok / skipped / failed)` counts + `bytesPerTarget` + `slugsPerTarget` splits. |
+| `Sources/cupertino-symbolgraphs-gen/main.swift` | CLI binary (ArgumentParser) — orchestrates extraction across all four SDKs + validation + manifest write. |
+| `Tests/AppleSymbolGraphsKitTests/` | 19 unit tests covering curated lookups, PascalCase + lowercase + drift fill-in, `knownNonExtractable` invariants, variant ordering + de-dup, Manifest aggregation + JSON round-trip, extractor hygiene. |
 
 ## Validation
 

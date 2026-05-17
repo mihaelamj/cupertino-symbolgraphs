@@ -83,12 +83,28 @@ struct Tool: AsyncParsableCommand {
         let watchosSDK = await resolveOptional(arg: watchosSdkPath, sdkName: "watchos")
         let xrosSDK    = await resolveOptional(arg: xrosSdkPath,    sdkName: "xros")
 
+        // The `playgrounds/` framework dir under each SDK holds
+        // LiveExecutionResultsRuntime, which isn't on the default
+        // module search path. Passing it as -F rescues that one
+        // extraction (and any future modules Apple drops in there).
+        func playgroundsPath(for sdk: String) -> String { "\(sdk)/usr/lib/swift/playgrounds" }
+
         var targets: [ExtractionTarget] = [
-            ExtractionTarget(sdkPath: macosSDK, targetTriple: macosTarget),
+            ExtractionTarget(sdkPath: macosSDK, targetTriple: macosTarget,
+                             extraFrameworkSearchPaths: [playgroundsPath(for: macosSDK)]),
         ]
-        if let iosSDK     { targets.append(ExtractionTarget(sdkPath: iosSDK,     targetTriple: iosTarget)) }
-        if let watchosSDK { targets.append(ExtractionTarget(sdkPath: watchosSDK, targetTriple: watchosTarget)) }
-        if let xrosSDK    { targets.append(ExtractionTarget(sdkPath: xrosSDK,    targetTriple: xrosTarget)) }
+        if let iosSDK {
+            targets.append(ExtractionTarget(sdkPath: iosSDK, targetTriple: iosTarget,
+                                            extraFrameworkSearchPaths: [playgroundsPath(for: iosSDK)]))
+        }
+        if let watchosSDK {
+            targets.append(ExtractionTarget(sdkPath: watchosSDK, targetTriple: watchosTarget,
+                                            extraFrameworkSearchPaths: [playgroundsPath(for: watchosSDK)]))
+        }
+        if let xrosSDK {
+            targets.append(ExtractionTarget(sdkPath: xrosSDK, targetTriple: xrosTarget,
+                                            extraFrameworkSearchPaths: [playgroundsPath(for: xrosSDK)]))
+        }
         print("Output: \(outputURL.path)")
         for (i, t) in targets.enumerated() {
             print("Target \(i + 1): \(t.targetTriple)  sdk=\(t.sdkPath)")
@@ -100,8 +116,12 @@ struct Tool: AsyncParsableCommand {
             targets: targets,
             outputRoot: outputURL
         )
-        let slugs = FrameworkModuleMap.allCuratedSlugs
-        print("Extracting \(slugs.count) curated slugs...")
+        // Input = every slug we know about: extractable (curated) +
+        // intentionally-non-extractable (short-circuited to .skipped so
+        // consumers see them in the manifest with a reason).
+        let slugs = (Set(FrameworkModuleMap.allCuratedSlugs)
+            .union(FrameworkModuleMap.knownNonExtractable.keys)).sorted()
+        print("Extracting \(slugs.count) slugs (\(FrameworkModuleMap.allCuratedSlugs.count) curated + \(FrameworkModuleMap.knownNonExtractable.count) known-non-extractable)…")
         var results: [ExtractionResult] = []
         for (i, slug) in slugs.enumerated() {
             let result = try extractor.extract(slug: slug)
@@ -126,9 +146,20 @@ struct Tool: AsyncParsableCommand {
         }
 
         // Validate against ground truth (each SDK separately; a module
-        // is "covered" if extracted under any target).
+        // is "covered" if extracted under any target OR explicitly listed
+        // in FrameworkModuleMap.knownNonExtractable with a documented reason).
         if validate {
             let extractedModules = Set(results.filter { $0.status == .ok }.map { $0.moduleName })
+            // Module names corresponding to slugs we've intentionally classified
+            // as non-extractable (the .skipped path). Computed via curated
+            // (no entry here means we strip-route by canonical PascalCase form).
+            let skippedModules = Set(
+                FrameworkModuleMap.knownNonExtractable.keys.compactMap { slug -> String? in
+                    if let curated = FrameworkModuleMap.curated[slug] { return curated }
+                    return FrameworkModuleMap.pascalCaseFallback(slug)
+                }
+            )
+                .union(["MapKitSwiftBridge"])
             let internalPrefixes = ["_", "Swift"]
             // Curate the "real" private-module names we explicitly want
             // to silence — they exist as .swiftmodule but aren't user-facing
@@ -142,6 +173,7 @@ struct Tool: AsyncParsableCommand {
                 print("Validating against \(target.targetTriple) (.swiftmodule ground truth)…")
                 let groundTruth = Set((try? SDKModuleEnumerator.swiftModules(at: target.sdkPath)) ?? [])
                 let missing = groundTruth.subtracting(extractedModules)
+                    .subtracting(skippedModules)
                     .filter { name in
                         !silencedModules.contains(name)
                             && !internalPrefixes.contains(where: { name.hasPrefix($0) && name != "Swift" })

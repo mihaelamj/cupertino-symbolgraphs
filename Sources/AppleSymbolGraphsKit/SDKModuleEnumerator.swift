@@ -19,11 +19,14 @@ import Foundation
 /// Obj-C-only-with-Swift-overlay (extractable via headers/module
 /// maps) or genuinely non-Swift.
 public enum SDKModuleEnumerator {
-    /// Path to the active SDK as reported by `xcrun --show-sdk-path`
-    /// (no `-sdk` arg → default platform, usually macOS).
+    /// Path to the active macOS SDK as reported by
+    /// `xcrun --sdk macosx --show-sdk-path`. Explicitly `macosx` so
+    /// we resolve to Xcode's full SDK (containing 800+ Swift modules
+    /// via the iOSSupport cryptex paths) rather than the stripped
+    /// CommandLineTools SDK that bare `xcrun --show-sdk-path` returns
+    /// when `xcode-select` points at CommandLineTools.
     public static func activeSDKPath() async throws -> String {
-        let output = try await Self.runCapture("/usr/bin/xcrun", ["--show-sdk-path"])
-        return output.trimmingCharacters(in: .whitespacesAndNewlines)
+        try await activeSDKPath(sdk: "macosx")
     }
 
     /// Path to a specific SDK by short name (`iphoneos`, `appletvos`,
@@ -41,24 +44,32 @@ public enum SDKModuleEnumerator {
     }
 
     /// All Swift module names available in the SDK at `sdkPath`.
-    /// Returns lowercase-sorted unique values; module names are
-    /// case-sensitive on disk but the consumer typically does
-    /// case-insensitive comparisons.
+    /// Returns sorted unique values; module names are case-sensitive
+    /// on disk but the consumer typically does case-insensitive
+    /// comparisons.
     public static func swiftModules(at sdkPath: String) throws -> [String] {
+        // Include the iOSSupport cryptex root for macOS SDKs — Apple
+        // ships ~600 additional Swift modules under
+        // `System/Cryptexes/OS/System/iOSSupport/System/Library/Frameworks`
+        // (Mac Catalyst surface). Without this we miss BrowserKit,
+        // LiveExecutionResultsRuntime, and many others.
         let scanDirs = [
             "\(sdkPath)/usr/lib/swift",
             "\(sdkPath)/System/Library/Frameworks",
             "\(sdkPath)/System/Library/SubFrameworks",
             "\(sdkPath)/System/Library/PrivateFrameworks",
+            "\(sdkPath)/System/Cryptexes/OS/System/iOSSupport/System/Library/Frameworks",
+            "\(sdkPath)/System/Cryptexes/OS/System/iOSSupport/System/Library/SubFrameworks",
+            "\(sdkPath)/System/Cryptexes/OS/System/iOSSupport/System/Library/PrivateFrameworks",
         ]
         var found = Set<String>()
         let fm = FileManager.default
 
+        // Apple's framework layout can nest .swiftmodule up to 10 levels
+        // deep under cryptex paths. Bound conservatively at 16.
         for dir in scanDirs {
             guard fm.fileExists(atPath: dir) else { continue }
-            // Walk for *.swiftmodule directories at any depth (cap at 6
-            // to avoid arbitrary tree walks — Apple's layout is shallow).
-            try Self.walk(directory: dir, maxDepth: 6, fileManager: fm) { url in
+            try Self.walk(directory: dir, maxDepth: 16, fileManager: fm) { url in
                 guard url.hasDirectoryPath, url.lastPathComponent.hasSuffix(".swiftmodule") else {
                     return
                 }

@@ -55,6 +55,7 @@ public enum FrameworkModuleMap {
         "appstoreserverapi":   "server-side REST API, no client Swift module in any SDK",
         "carekit":             "separate open-source SPM package (carekit-apple/CareKit), not bundled with Xcode SDKs",
         "docc":                "documentation compiler tool, not a Swift module",
+        "mapkitswiftbridge":   "nested inside MapKit.framework (MapKit.framework/MapKitSwiftBridge.framework/Modules/), not standalone-extractable; surface lives under slug 'mapkit'",
         "photokit":            "marketing alias for the Photos framework — use slug 'photos' (module 'Photos') instead",
         "realitycomposerpro":  "Xcode-bundled tool, not a Swift module",
         "sirikit":             "deprecated; functionality moved to Intents + IntentsUI",
@@ -67,7 +68,7 @@ public enum FrameworkModuleMap {
     /// correctly (`foundation` → `Foundation`); fails on multi-word
     /// camelcase Apple frameworks (`avfoundation` → `Avfoundation`,
     /// should be `AVFoundation`) — those need curated entries.
-    static func pascalCaseFallback(_ slug: String) -> String {
+    public static func pascalCaseFallback(_ slug: String) -> String {
         guard let first = slug.first else { return slug }
         return first.uppercased() + slug.dropFirst()
     }
@@ -81,7 +82,7 @@ public enum FrameworkModuleMap {
     /// frameworks first, then AV/Media, then UI/AppKit, then
     /// CloudKit/Network/Auth, then ML/Vision, then everything else.
     /// Sort discipline isn't load-bearing; readability is.
-    static let curated: [String: String] = [
+    public static let curated: [String: String] = [
         // MARK: - Foundation + Core
         "foundation": "Foundation",
         "swift": "Swift",
@@ -281,6 +282,7 @@ public enum FrameworkModuleMap {
 
         // MARK: - Web / Browser
         "webkit": "WebKit",
+        "browserkit": "BrowserKit",
         "browserenginecore": "BrowserEngineCore",
         "browserenginekit": "BrowserEngineKit",
         "safariservices": "SafariServices",
@@ -389,11 +391,15 @@ public enum FrameworkModuleMap {
         "energykit": "EnergyKit",
         "journalingsuggestions": "JournalingSuggestions",
         "managedapp": "ManagedApp",
-        "mapkitswiftbridge": "MapKitSwiftBridge",
+        // "mapkitswiftbridge": nested inside MapKit.framework, see knownNonExtractable.
         "marketplacekit": "MarketplaceKit",
         "secureelementcredential": "SecureElementCredential",
         "servicesaccountlinking": "ServicesAccountLinking",
         "wifiinfrastructure": "WiFiInfrastructure",
         "wirelessinsights": "WirelessInsights",
+
+        // MARK: - visionOS-only (require xros SDK fallback)
+        "foveatedstreaming": "FoveatedStreaming",
+        "visionentitlementservices": "VisionEntitlementServices",
     ]
 }

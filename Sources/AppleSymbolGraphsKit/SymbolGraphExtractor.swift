@@ -9,10 +9,16 @@ import Foundation
 public struct ExtractionTarget: Sendable, Codable {
     public let sdkPath: String
     public let targetTriple: String
+    /// Extra `-F` framework search paths to pass to
+    /// `symbolgraph-extract` for modules that live outside the
+    /// standard SDK module search tree. Currently used to rescue
+    /// `LiveExecutionResultsRuntime` from `<sdk>/usr/lib/swift/playgrounds/`.
+    public let extraFrameworkSearchPaths: [String]
 
-    public init(sdkPath: String, targetTriple: String) {
+    public init(sdkPath: String, targetTriple: String, extraFrameworkSearchPaths: [String] = []) {
         self.sdkPath = sdkPath
         self.targetTriple = targetTriple
+        self.extraFrameworkSearchPaths = extraFrameworkSearchPaths
     }
 }
 
@@ -180,13 +186,18 @@ public struct SymbolGraphExtractor {
     private func runOnce(moduleName: String, target: ExtractionTarget, outputDir: URL) -> (Bool, String) {
         let proc = Process()
         proc.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
-        proc.arguments = [
+        var args: [String] = [
             "swift", "symbolgraph-extract",
             "-module-name", moduleName,
             "-target", target.targetTriple,
             "-sdk", target.sdkPath,
             "-output-dir", outputDir.path,
         ]
+        for fpath in target.extraFrameworkSearchPaths {
+            args.append("-F")
+            args.append(fpath)
+        }
+        proc.arguments = args
         let errPipe = Pipe()
         proc.standardError = errPipe
         proc.standardOutput = Pipe()
