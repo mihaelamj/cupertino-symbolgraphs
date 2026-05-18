@@ -6,6 +6,18 @@ The corpus itself is distributed via GitHub Releases as `corpus-vX.Y.Z.zip`; see
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-18
+
+Empirically-immaculate corpus + tooling release. 100% brew-DB completeness coverage, 5 SDK targets including tvOS, audit CLI replaces ad-hoc Python diagnostics, CI on every push. Public repo flip done in this cycle so the corpus zip is now anonymously fetchable.
+
+### Corpus shape
+
+- 406 slugs total / **269 OK** / **137 SKIP** (non-SDK, documented reasons) / **0 FAIL**
+- 1.5 GB raw / 92 MB zipped (`corpus-v0.1.1.zip`)
+- 5 SDK targets: macOS 26.5 / iOS 26.5 / watchOS 26.5 / visionOS 26.5 / tvOS 26.5
+- All 5 SDK validators report ✅ "All user-facing modules covered"
+- Per-target split: 223 macOS / 41 iOS / 3 visionOS / 1 watchOS / 1 tvOS (TVUIKit)
+
 ### Added
 
 - **`cupertino-symbolgraphs-audit` diagnostic CLI (3rd executable target, closes #10 / PR #11).** Three subcommands replace ad-hoc Python heredocs used during the v0.1.1 immaculate audit:
@@ -30,11 +42,12 @@ The corpus itself is distributed via GitHub Releases as `corpus-vX.Y.Z.zip`; see
 - 18 previously-undocumented public symbols on `Manifest.TargetEntry`, `Manifest.Summary`, `ExtractionResult`, `ExtractionTarget`, and `SymbolGraphExtractor` now carry `///` doc comments.
 - `Package.swift`: declared the brew-DB fixture as a test target resource (silences the "unhandled file" SwiftPM warning).
 
-### Released artifacts (unchanged)
+### Released artifacts
 
-- v0.1.0 git tag still at `de62a95`.
-- `corpus-v0.1.0.zip` (sha256 `f398c06d1566cfdd8629a51630d179d64e4697be8847aea438ebf54283363ee7`, 91 MB) and `manifest.json` (sha256 `6042f16678d1eb5b0933aefa66c503103c615cc2f9a67d6b3b88677eeedb6b3f`) on the GitHub release are byte-identical to what shipped.
-- The expanded coverage + test surface ship in a future v0.1.1; no new artifact bundled in this Unreleased section.
+- v0.1.1 git tag.
+- `corpus-v0.1.1.zip` (sha256 `a35fc1b9190e7e8ef39d639b54e5296b49b3aeea68c429307c756b149012307d`, 92 MB).
+- `manifest.json` (sha256 `4862b01697c669251ff3f84fccff589ebe3b3dcc4ff6dd6ce26175ea933f2049`).
+- v0.1.0 tag preserved at `de62a95`; the v0.1.0 zip + manifest remain byte-identical on GH releases (sha256 `f398c06d…3ee7` + `6042f166…b3f`).
 
 ## [0.1.0] - 2026-05-18
 
@@ -60,5 +73,6 @@ First release. Cupertino's apple-docs framework slugs extracted across four Appl
 
 To be filled in by the release script; see `manifest.json` in the published zip.
 
-[Unreleased]: https://github.com/mihaelamj/cupertino-symbolgraphs/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/mihaelamj/cupertino-symbolgraphs/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/mihaelamj/cupertino-symbolgraphs/releases/tag/v0.1.1
 [0.1.0]: https://github.com/mihaelamj/cupertino-symbolgraphs/releases/tag/v0.1.0

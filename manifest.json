@@ -1,5 +1,5 @@
 {
-  "generatedAt" : "2026-05-17T22:44:47Z",
+  "generatedAt" : "2026-05-18T02:27:22Z",
   "manifestVersion" : 3,
   "results" : [
     {
@@ -51,6 +51,24 @@
       "targetTriple" : "arm64-apple-ios18"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Accountdatatransfer",
+      "sizeBytes" : 0,
+      "slug" : "accountdatatransfer",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Accountorganizationaldatasharing",
+      "sizeBytes" : 0,
+      "slug" : "accountorganizationaldatasharing",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "Accounts",
       "sizeBytes" : 127706,
@@ -75,12 +93,93 @@
       "targetTriple" : "arm64-apple-ios18"
     },
     {
+      "errorMessage" : "deprecated; functionality moved to Contacts (slug: contacts)",
+      "fileCount" : 0,
+      "moduleName" : "Addressbook",
+      "sizeBytes" : 0,
+      "slug" : "addressbook",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "deprecated; functionality moved to ContactsUI (slug: contactsui)",
+      "fileCount" : 0,
+      "moduleName" : "Addressbookui",
+      "sizeBytes" : 0,
+      "slug" : "addressbookui",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Adservices",
+      "sizeBytes" : 0,
+      "slug" : "adservices",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Obj-C ASIdentifierManager; no Swift module ships in SDK",
+      "fileCount" : 0,
+      "moduleName" : "Adsupport",
+      "sizeBytes" : 0,
+      "slug" : "adsupport",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Advancedcommerceapi",
+      "sizeBytes" : 0,
+      "slug" : "advancedcommerceapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "AlarmKit",
       "sizeBytes" : 740011,
       "slug" : "alarmkit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Analytics-reports",
+      "sizeBytes" : 0,
+      "slug" : "analytics-reports",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Appclip",
+      "sizeBytes" : 0,
+      "slug" : "appclip",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Appdatatransfer",
+      "sizeBytes" : 0,
+      "slug" : "appdatatransfer",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Appdistribution",
+      "sizeBytes" : 0,
+      "slug" : "appdistribution",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 9,
@@ -93,9 +192,36 @@
     {
       "fileCount" : 8,
       "moduleName" : "AppKit",
-      "sizeBytes" : 28038026,
+      "sizeBytes" : 28037687,
       "slug" : "appkit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Apple-silicon",
+      "sizeBytes" : 0,
+      "slug" : "apple-silicon",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Apple_ads",
+      "sizeBytes" : 0,
+      "slug" : "apple_ads",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Apple_pay_on_the_web",
+      "sizeBytes" : 0,
+      "slug" : "apple_pay_on_the_web",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -107,6 +233,123 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Applemapsserverapi",
+      "sizeBytes" : 0,
+      "slug" : "applemapsserverapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Applemusicapi",
+      "sizeBytes" : 0,
+      "slug" : "applemusicapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applemusicfeed",
+      "sizeBytes" : 0,
+      "slug" : "applemusicfeed",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applenews",
+      "sizeBytes" : 0,
+      "slug" : "applenews",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Applenewsapi",
+      "sizeBytes" : 0,
+      "slug" : "applenewsapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applenewsformat",
+      "sizeBytes" : 0,
+      "slug" : "applenewsformat",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Applepaymerchanttokenmanagementapi",
+      "sizeBytes" : 0,
+      "slug" : "applepaymerchanttokenmanagementapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applepaymerchanttokenusageinformation",
+      "sizeBytes" : 0,
+      "slug" : "applepaymerchanttokenusageinformation",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applepayontheweb",
+      "sizeBytes" : 0,
+      "slug" : "applepayontheweb",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Applepaywebmerchantregistrationapi",
+      "sizeBytes" : 0,
+      "slug" : "applepaywebmerchantregistrationapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applepencil",
+      "sizeBytes" : 0,
+      "slug" : "applepencil",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applicationservices",
+      "sizeBytes" : 0,
+      "slug" : "applicationservices",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Applicensedeliverysdk",
+      "sizeBytes" : 0,
+      "slug" : "applicensedeliverysdk",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "AppMigrationKit",
       "sizeBytes" : 208246,
@@ -115,11 +358,47 @@
       "targetTriple" : "arm64-apple-ios18"
     },
     {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Appstoreconnectapi",
+      "sizeBytes" : 0,
+      "slug" : "appstoreconnectapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Appstorereceipts",
+      "sizeBytes" : 0,
+      "slug" : "appstorereceipts",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "errorMessage" : "server-side REST API, no client Swift module in any SDK",
       "fileCount" : 0,
       "moduleName" : "Appstoreserverapi",
       "sizeBytes" : 0,
       "slug" : "appstoreserverapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Appstoreservernotifications",
+      "sizeBytes" : 0,
+      "slug" : "appstoreservernotifications",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Obj-C only framework with C-API; no Swift module ships in SDK",
+      "fileCount" : 0,
+      "moduleName" : "Apptrackingtransparency",
+      "sizeBytes" : 0,
+      "slug" : "apptrackingtransparency",
       "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
@@ -153,6 +432,15 @@
       "sizeBytes" : 346,
       "slug" : "audioaccessorykit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Audiodriverkit",
+      "sizeBytes" : 0,
+      "slug" : "audiodriverkit",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -196,11 +484,29 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Automaticsigninapi",
+      "sizeBytes" : 0,
+      "slug" : "automaticsigninapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "Automator",
       "sizeBytes" : 250297,
       "slug" : "automator",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Availability",
+      "sizeBytes" : 0,
+      "slug" : "availability",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -252,6 +558,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Blockstoragedevicedriverkit",
+      "sizeBytes" : 0,
+      "slug" : "blockstoragedevicedriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "BrowserEngineCore",
       "sizeBytes" : 1215,
@@ -274,6 +589,15 @@
       "slug" : "browserkit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Bundleresources",
+      "sizeBytes" : 0,
+      "slug" : "bundleresources",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 1,
@@ -303,7 +627,7 @@
     {
       "fileCount" : 2,
       "moduleName" : "CarPlay",
-      "sizeBytes" : 1989055,
+      "sizeBytes" : 1989049,
       "slug" : "carplay",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
@@ -333,11 +657,29 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Cktooljs",
+      "sizeBytes" : 0,
+      "slug" : "cktooljs",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "ClassKit",
       "sizeBytes" : 304380,
       "slug" : "classkit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Classkitcatalogapi",
+      "sizeBytes" : 0,
+      "slug" : "classkitcatalogapi",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -365,11 +707,29 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Cloudkitjs",
+      "sizeBytes" : 0,
+      "slug" : "cloudkitjs",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "Collaboration",
       "sizeBytes" : 62929,
       "slug" : "collaboration",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Colorsync",
+      "sizeBytes" : 0,
+      "slug" : "colorsync",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -431,7 +791,7 @@
     {
       "fileCount" : 2,
       "moduleName" : "CoreAudioKit",
-      "sizeBytes" : 150216,
+      "sizeBytes" : 150234,
       "slug" : "coreaudiokit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-macos15"
@@ -661,6 +1021,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Darwinnotify",
+      "sizeBytes" : 0,
+      "slug" : "darwinnotify",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "DataDetection",
       "sizeBytes" : 282001,
@@ -674,6 +1043,15 @@
       "sizeBytes" : 186821,
       "slug" : "declaredagerange",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no primary Swift module ships under this slug; surfaces only as cross-module extension target (e.g. SwiftUI@DeveloperToolsSupport)",
+      "fileCount" : 0,
+      "moduleName" : "Developertoolssupport",
+      "sizeBytes" : 0,
+      "slug" : "developertoolssupport",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -707,6 +1085,24 @@
       "slug" : "devicediscoveryui",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Devicemanagement",
+      "sizeBytes" : 0,
+      "slug" : "devicemanagement",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Diskarbitration",
+      "sizeBytes" : 0,
+      "slug" : "diskarbitration",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 1,
@@ -750,12 +1146,39 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Driverkit",
+      "sizeBytes" : 0,
+      "slug" : "driverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Endpointsecurity",
+      "sizeBytes" : 0,
+      "slug" : "endpointsecurity",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 3,
       "moduleName" : "EnergyKit",
       "sizeBytes" : 603416,
       "slug" : "energykit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Enterpriseprogramapi",
+      "sizeBytes" : 0,
+      "slug" : "enterpriseprogramapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 2,
@@ -772,6 +1195,33 @@
       "slug" : "eventkitui",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "legacy Foundation exception bridge; deprecated, NSError pattern preferred",
+      "fileCount" : 0,
+      "moduleName" : "Exceptionhandling",
+      "sizeBytes" : 0,
+      "slug" : "exceptionhandling",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Executionpolicy",
+      "sizeBytes" : 0,
+      "slug" : "executionpolicy",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Exposurenotification",
+      "sizeBytes" : 0,
+      "slug" : "exposurenotification",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 1,
@@ -795,6 +1245,15 @@
       "sizeBytes" : 186878,
       "slug" : "externalaccessory",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Externalpurchaseserverapi",
+      "sizeBytes" : 0,
+      "slug" : "externalpurchaseserverapi",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -846,6 +1305,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "legacy macOS-only haptics framework, superseded by Core Haptics (slug: corehaptics)",
+      "fileCount" : 0,
+      "moduleName" : "Forcefeedback",
+      "sizeBytes" : 0,
+      "slug" : "forcefeedback",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 10,
       "moduleName" : "Foundation",
       "sizeBytes" : 51249995,
@@ -888,7 +1356,7 @@
     {
       "fileCount" : 2,
       "moduleName" : "GameKit",
-      "sizeBytes" : 1979111,
+      "sizeBytes" : 1978834,
       "slug" : "gamekit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-macos15"
@@ -958,12 +1426,30 @@
       "targetTriple" : "arm64-apple-ios18"
     },
     {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Hiddriverkit",
+      "sizeBytes" : 0,
+      "slug" : "hiddriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 3,
       "moduleName" : "HomeKit",
       "sizeBytes" : 6604474,
       "slug" : "homekit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Http-live-streaming",
+      "sizeBytes" : 0,
+      "slug" : "http-live-streaming",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 1,
@@ -979,6 +1465,15 @@
       "sizeBytes" : 2399310,
       "slug" : "hypervisor",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "discontinued by Apple; iAd network shut down in 2016",
+      "fileCount" : 0,
+      "moduleName" : "Iad",
+      "sizeBytes" : 0,
+      "slug" : "iad",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1046,6 +1541,24 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "macOS framework with C-only API surface; no Swift module ships in the SDK",
+      "fileCount" : 0,
+      "moduleName" : "Inputmethodkit",
+      "sizeBytes" : 0,
+      "slug" : "inputmethodkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Installer_js",
+      "sizeBytes" : 0,
+      "slug" : "installer_js",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 4,
       "moduleName" : "Intents",
       "sizeBytes" : 1960566,
@@ -1072,7 +1585,7 @@
     {
       "fileCount" : 1,
       "moduleName" : "IOBluetoothUI",
-      "sizeBytes" : 198413,
+      "sizeBytes" : 198409,
       "slug" : "iobluetoothui",
       "status" : "ok",
       "targetTriple" : "arm64-apple-macos15"
@@ -1083,6 +1596,15 @@
       "sizeBytes" : 970558,
       "slug" : "iokit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Ios-ipados-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "ios-ipados-release-notes",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1110,6 +1632,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Iworkdocumentexportingapi",
+      "sizeBytes" : 0,
+      "slug" : "iworkdocumentexportingapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "JavaScriptCore",
       "sizeBytes" : 700566,
@@ -1124,6 +1655,24 @@
       "slug" : "journalingsuggestions",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Kernel",
+      "sizeBytes" : 0,
+      "slug" : "kernel",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Latentsemanticmapping",
+      "sizeBytes" : 0,
+      "slug" : "latentsemanticmapping",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 3,
@@ -1158,6 +1707,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Livephotoskitjs",
+      "sizeBytes" : 0,
+      "slug" : "livephotoskitjs",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "LocalAuthentication",
       "sizeBytes" : 5078552,
@@ -1180,6 +1738,15 @@
       "slug" : "lockedcameracapture",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Macos-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "macos-release-notes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 1,
@@ -1224,9 +1791,18 @@
     {
       "fileCount" : 7,
       "moduleName" : "MapKit",
-      "sizeBytes" : 54401238,
+      "sizeBytes" : 54401236,
       "slug" : "mapkit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Mapkitjs",
+      "sizeBytes" : 0,
+      "slug" : "mapkitjs",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1279,6 +1855,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "deprecated; replaced by Photos (slug: photos)",
+      "fileCount" : 0,
+      "moduleName" : "Medialibrary",
+      "sizeBytes" : 0,
+      "slug" : "medialibrary",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 3,
       "moduleName" : "MediaPlayer",
       "sizeBytes" : 471590,
@@ -1287,11 +1872,29 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "deprecated 2024; functionality folded into Network framework",
+      "fileCount" : 0,
+      "moduleName" : "Mediasetup",
+      "sizeBytes" : 0,
+      "slug" : "mediasetup",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "MediaToolbox",
       "sizeBytes" : 58522,
       "slug" : "mediatoolbox",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Merchanttokennotificationservices",
+      "sizeBytes" : 0,
+      "slug" : "merchanttokennotificationservices",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1359,6 +1962,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Mididriverkit",
+      "sizeBytes" : 0,
+      "slug" : "mididriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "MLCompute",
       "sizeBytes" : 1444611,
@@ -1420,6 +2032,24 @@
       "sizeBytes" : 1654193,
       "slug" : "networkextension",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Networkingdriverkit",
+      "sizeBytes" : 0,
+      "slug" : "networkingdriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Notaryapi",
+      "sizeBytes" : 0,
+      "slug" : "notaryapi",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1487,6 +2117,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Packagedescription",
+      "sizeBytes" : 0,
+      "slug" : "packagedescription",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "PaperKit",
       "sizeBytes" : 406144,
@@ -1495,11 +2134,38 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Paravirtualizedgraphics",
+      "sizeBytes" : 0,
+      "slug" : "paravirtualizedgraphics",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 3,
       "moduleName" : "PassKit",
-      "sizeBytes" : 6566093,
+      "sizeBytes" : 6566051,
       "slug" : "passkit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Passkit_apple_pay_and_wallet",
+      "sizeBytes" : 0,
+      "slug" : "passkit_apple_pay_and_wallet",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Pcidriverkit",
+      "sizeBytes" : 0,
+      "slug" : "pcidriverkit",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1535,7 +2201,7 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
-      "errorMessage" : "marketing alias for the Photos framework — use slug 'photos' (module 'Photos') instead",
+      "errorMessage" : "marketing alias for the Photos framework; use slug 'photos' (module 'Photos') instead",
       "fileCount" : 0,
       "moduleName" : "Photokit",
       "sizeBytes" : 0,
@@ -1560,6 +2226,51 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Playgroundbluetooth",
+      "sizeBytes" : 0,
+      "slug" : "playgroundbluetooth",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Swift Playgrounds-only framework; not bundled in standard Xcode SDKs",
+      "fileCount" : 0,
+      "moduleName" : "Playgroundsupport",
+      "sizeBytes" : 0,
+      "slug" : "playgroundsupport",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Preferencepanes",
+      "sizeBytes" : 0,
+      "slug" : "preferencepanes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Professional-video-applications",
+      "sizeBytes" : 0,
+      "slug" : "professional-video-applications",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Professional_video_applications",
+      "sizeBytes" : 0,
+      "slug" : "professional_video_applications",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "ProximityReader",
       "sizeBytes" : 2381275,
@@ -1576,9 +2287,17 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "fileCount" : 1,
+      "moduleName" : "PushToTalk",
+      "sizeBytes" : 327,
+      "slug" : "pushtotalk",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 4,
       "moduleName" : "Quartz",
-      "sizeBytes" : 1095009,
+      "sizeBytes" : 1094991,
       "slug" : "quartz",
       "status" : "ok",
       "targetTriple" : "arm64-apple-macos15"
@@ -1610,9 +2329,18 @@
     {
       "fileCount" : 3,
       "moduleName" : "QuickLookUI",
-      "sizeBytes" : 118636,
+      "sizeBytes" : 118634,
       "slug" : "quicklookui",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Quicktime-file-format",
+      "sizeBytes" : 0,
+      "slug" : "quicktime-file-format",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1665,12 +2393,66 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "Apple-internal service surface, no client Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Retentionmessaging",
+      "sizeBytes" : 0,
+      "slug" : "retentionmessaging",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "RoomPlan",
       "sizeBytes" : 907832,
       "slug" : "roomplan",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "documentation root page, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Root",
+      "sizeBytes" : 0,
+      "slug" : "root",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Rosterapi",
+      "sizeBytes" : 0,
+      "slug" : "rosterapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Safari-developer-tools",
+      "sizeBytes" : 0,
+      "slug" : "safari-developer-tools",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Safari-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "safari-release-notes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Safari extension surface (Obj-C \/ WebExtensions JSON); no extractable Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Safariextensions",
+      "sizeBytes" : 0,
+      "slug" : "safariextensions",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 1,
@@ -1686,6 +2468,15 @@
       "sizeBytes" : 119817,
       "slug" : "safetykit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation umbrella for sample-code pages, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Samplecode",
+      "sizeBytes" : 0,
+      "slug" : "samplecode",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1706,10 +2497,54 @@
     },
     {
       "fileCount" : 1,
+      "moduleName" : "ScreenSaver",
+      "sizeBytes" : 28627,
+      "slug" : "screensaver",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 1,
       "moduleName" : "ScreenTime",
       "sizeBytes" : 54814,
       "slug" : "screentime",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation umbrella under ScreenTime, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Screentimeapidocumentation",
+      "sizeBytes" : 0,
+      "slug" : "screentimeapidocumentation",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Scriptingbridge",
+      "sizeBytes" : 0,
+      "slug" : "scriptingbridge",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Scsicontrollerdriverkit",
+      "sizeBytes" : 0,
+      "slug" : "scsicontrollerdriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Scsiperipheralsdriverkit",
+      "sizeBytes" : 0,
+      "slug" : "scsiperipheralsdriverkit",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1739,7 +2574,7 @@
     {
       "fileCount" : 2,
       "moduleName" : "SecurityInterface",
-      "sizeBytes" : 249681,
+      "sizeBytes" : 249940,
       "slug" : "securityinterface",
       "status" : "ok",
       "targetTriple" : "arm64-apple-macos15"
@@ -1769,6 +2604,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Serialdriverkit",
+      "sizeBytes" : 0,
+      "slug" : "serialdriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "ServiceManagement",
       "sizeBytes" : 67332,
@@ -1783,6 +2627,15 @@
       "slug" : "servicesaccountlinking",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "Reality Composer Pro shader-graph editor surface; not an extractable Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Shadergraph",
+      "sizeBytes" : 0,
+      "slug" : "shadergraph",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
     },
     {
       "fileCount" : 3,
@@ -1809,6 +2662,42 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Sign_in_with_apple",
+      "sizeBytes" : 0,
+      "slug" : "sign_in_with_apple",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no top-level Swift module under this slug; functionality is in AuthenticationServices (slug: authenticationservices)",
+      "fileCount" : 0,
+      "moduleName" : "Signinwithapple",
+      "sizeBytes" : 0,
+      "slug" : "signinwithapple",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Signinwithapplejs",
+      "sizeBytes" : 0,
+      "slug" : "signinwithapplejs",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Signinwithapplerestapi",
+      "sizeBytes" : 0,
+      "slug" : "signinwithapplerestapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 2,
       "moduleName" : "simd",
       "sizeBytes" : 6558772,
@@ -1817,11 +2706,47 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "schema.org-style markup for Siri Suggestions, not a Swift framework",
+      "fileCount" : 0,
+      "moduleName" : "Sirieventsuggestionsmarkup",
+      "sizeBytes" : 0,
+      "slug" : "sirieventsuggestionsmarkup",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "errorMessage" : "deprecated; functionality moved to Intents + IntentsUI",
       "fileCount" : 0,
       "moduleName" : "Sirikit",
       "sizeBytes" : 0,
       "slug" : "sirikit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "sub-framework \/ private surface; no extractable Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Sirikitcloudmedia",
+      "sizeBytes" : 0,
+      "slug" : "sirikitcloudmedia",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "web\/server-side ad attribution surface, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Skadnetworkforwebads",
+      "sizeBytes" : 0,
+      "slug" : "skadnetworkforwebads",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation umbrella, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Snapshots",
+      "sizeBytes" : 0,
+      "slug" : "snapshots",
       "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
@@ -1876,9 +2801,18 @@
     {
       "fileCount" : 6,
       "moduleName" : "StoreKit",
-      "sizeBytes" : 76998485,
+      "sizeBytes" : 76998206,
       "slug" : "storekit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Apple-internal StoreKit test support; not shipped as an extractable Swift module in any standard SDK module search path",
+      "fileCount" : 0,
+      "moduleName" : "Storekittest",
+      "sizeBytes" : 0,
+      "slug" : "storekittest",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1887,6 +2821,15 @@
       "sizeBytes" : 53477532,
       "slug" : "swift",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Swift-playgrounds",
+      "sizeBytes" : 0,
+      "slug" : "swift-playgrounds",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -1962,6 +2905,33 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "documentation umbrella for technology landing pages, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Technologies",
+      "sizeBytes" : 0,
+      "slug" : "technologies",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation umbrella, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Technologyoverviews",
+      "sizeBytes" : 0,
+      "slug" : "technologyoverviews",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation umbrella for Apple Tech Notes, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Technotes",
+      "sizeBytes" : 0,
+      "slug" : "technotes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "TelephonyMessagingKit",
       "sizeBytes" : 350,
@@ -1995,6 +2965,23 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "fileCount" : 1,
+      "moduleName" : "TouchController",
+      "sizeBytes" : 419944,
+      "slug" : "touchcontroller",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-ios18"
+    },
+    {
+      "errorMessage" : "visionOS Touch Controls surface; no extractable Swift module under this slug",
+      "fileCount" : 0,
+      "moduleName" : "Touchcontrols",
+      "sizeBytes" : 0,
+      "slug" : "touchcontrols",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 4,
       "moduleName" : "Translation",
       "sizeBytes" : 415145,
@@ -2011,9 +2998,62 @@
       "targetTriple" : "arm64-apple-ios18"
     },
     {
+      "errorMessage" : "TVML is a web markup language for Apple TV, not a Swift framework",
+      "fileCount" : 0,
+      "moduleName" : "Tvml",
+      "sizeBytes" : 0,
+      "slug" : "tvml",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Tvmljs",
+      "sizeBytes" : 0,
+      "slug" : "tvmljs",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "TVMLKit is Obj-C only; no Swift module in SDK",
+      "fileCount" : 0,
+      "moduleName" : "Tvmlkit",
+      "sizeBytes" : 0,
+      "slug" : "tvmlkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Tvos-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "tvos-release-notes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Tvservices",
+      "sizeBytes" : 0,
+      "slug" : "tvservices",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "fileCount" : 2,
+      "moduleName" : "TVUIKit",
+      "sizeBytes" : 340658,
+      "slug" : "tvuikit",
+      "status" : "ok",
+      "targetTriple" : "arm64-apple-tvos18"
+    },
+    {
       "fileCount" : 8,
       "moduleName" : "UIKit",
-      "sizeBytes" : 27431585,
+      "sizeBytes" : 27429602,
       "slug" : "uikit",
       "status" : "ok",
       "targetTriple" : "arm64-apple-ios18"
@@ -2024,6 +3064,42 @@
       "sizeBytes" : 489614,
       "slug" : "uniformtypeidentifiers",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation umbrella for what-new-in pages, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Updates",
+      "sizeBytes" : 0,
+      "slug" : "updates",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Usbdriverkit",
+      "sizeBytes" : 0,
+      "slug" : "usbdriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "DriverKit family framework; Obj-C\/C++ only; DriverKit SDK ships zero .swiftmodule files",
+      "fileCount" : 0,
+      "moduleName" : "Usbserialdriverkit",
+      "sizeBytes" : 0,
+      "slug" : "usbserialdriverkit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "Universal Scene Description (Pixar); Obj-C\/C++ only, no Swift module in SDK",
+      "fileCount" : 0,
+      "moduleName" : "Usd",
+      "sizeBytes" : 0,
+      "slug" : "usd",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -2091,6 +3167,24 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "platform documentation umbrella, not a framework",
+      "fileCount" : 0,
+      "moduleName" : "Visionos",
+      "sizeBytes" : 0,
+      "slug" : "visionos",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Visionos-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "visionos-release-notes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "VisualIntelligence",
       "sizeBytes" : 27547,
@@ -2104,6 +3198,24 @@
       "sizeBytes" : 242286,
       "slug" : "vmnet",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "PassKit Orders \/ Apple Wallet orders surface; no standalone Swift module under this slug",
+      "fileCount" : 0,
+      "moduleName" : "Walletorders",
+      "sizeBytes" : 0,
+      "slug" : "walletorders",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Walletpasses",
+      "sizeBytes" : 0,
+      "slug" : "walletpasses",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -2123,6 +3235,24 @@
       "targetTriple" : "arm64_32-apple-watchos11"
     },
     {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Watchos-apps",
+      "sizeBytes" : 0,
+      "slug" : "watchos-apps",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Watchos-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "watchos-release-notes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "WeatherKit",
       "sizeBytes" : 3864986,
@@ -2131,11 +3261,29 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "server-side REST API \/ service surface, no client Swift module in any Xcode SDK",
+      "fileCount" : 0,
+      "moduleName" : "Weatherkitrestapi",
+      "sizeBytes" : 0,
+      "slug" : "weatherkitrestapi",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 5,
       "moduleName" : "WebKit",
-      "sizeBytes" : 10493865,
+      "sizeBytes" : 10493875,
       "slug" : "webkit",
       "status" : "ok",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "web JavaScript SDK, not a Swift module",
+      "fileCount" : 0,
+      "moduleName" : "Webkitjs",
+      "sizeBytes" : 0,
+      "slug" : "webkitjs",
+      "status" : "skipped",
       "targetTriple" : "arm64-apple-macos15"
     },
     {
@@ -2179,6 +3327,33 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Xcode",
+      "sizeBytes" : 0,
+      "slug" : "xcode",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "documentation-only page (slug contains hyphen\/underscore; not a framework module name)",
+      "fileCount" : 0,
+      "moduleName" : "Xcode-release-notes",
+      "sizeBytes" : 0,
+      "slug" : "xcode-release-notes",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Xcodekit",
+      "sizeBytes" : 0,
+      "slug" : "xcodekit",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "xcselect",
       "sizeBytes" : 11587,
@@ -2196,6 +3371,15 @@
       "targetTriple" : "arm64-apple-macos15"
     },
     {
+      "errorMessage" : "no Swift module in any Xcode SDK (macOS \/ iOS \/ watchOS \/ visionOS \/ DriverKit); likely an Obj-C\/C++ framework, documentation umbrella, or legacy\/private surface",
+      "fileCount" : 0,
+      "moduleName" : "Xcuiautomation",
+      "sizeBytes" : 0,
+      "slug" : "xcuiautomation",
+      "status" : "skipped",
+      "targetTriple" : "arm64-apple-macos15"
+    },
+    {
       "fileCount" : 1,
       "moduleName" : "XPC",
       "sizeBytes" : 1239966,
@@ -2206,22 +3390,24 @@
   ],
   "summary" : {
     "bytesPerTarget" : {
-      "arm64-apple-ios18" : 77058483,
-      "arm64-apple-macos15" : 1460567391,
+      "arm64-apple-ios18" : 77476438,
+      "arm64-apple-macos15" : 1460595669,
+      "arm64-apple-tvos18" : 340658,
       "arm64-apple-xros2" : 6848452,
       "arm64_32-apple-watchos11" : 4660090
     },
     "failedCount" : 0,
-    "okCount" : 265,
-    "skippedCount" : 9,
+    "okCount" : 269,
+    "skippedCount" : 137,
     "slugsPerTarget" : {
-      "arm64-apple-ios18" : 40,
-      "arm64-apple-macos15" : 221,
+      "arm64-apple-ios18" : 41,
+      "arm64-apple-macos15" : 223,
+      "arm64-apple-tvos18" : 1,
       "arm64-apple-xros2" : 3,
       "arm64_32-apple-watchos11" : 1
     },
-    "totalBytes" : 1549134416,
-    "totalSlugs" : 274
+    "totalBytes" : 1549921307,
+    "totalSlugs" : 406
   },
   "swiftVersion" : "Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)",
   "targets" : [
@@ -2244,6 +3430,11 @@
       "sdkPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/XROS.platform\/Developer\/SDKs\/XROS26.5.sdk",
       "sdkVersion" : "26.5",
       "targetTriple" : "arm64-apple-xros2"
+    },
+    {
+      "sdkPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/AppleTVOS.platform\/Developer\/SDKs\/AppleTVOS26.5.sdk",
+      "sdkVersion" : "26.5",
+      "targetTriple" : "arm64-apple-tvos18"
     }
   ]
 }

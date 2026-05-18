@@ -168,28 +168,29 @@ struct ManifestGoldenFileTests {
     func goldenDecodes() throws {
         let data = try Data(contentsOf: URL(fileURLWithPath: Self.goldenPath))
         let m = try JSONDecoder().decode(Manifest.self, from: data)
-        // Sanity facts about the v0.1.0 corpus we shipped.
+        // Sanity facts about the v0.1.1 corpus (latest shipped release).
         #expect(m.manifestVersion == 3)
-        #expect(m.summary.totalSlugs == 274)
-        #expect(m.summary.okCount == 265)
-        #expect(m.summary.skippedCount == 9)
+        #expect(m.summary.totalSlugs == 406)
+        #expect(m.summary.okCount == 269)
+        #expect(m.summary.skippedCount == 137)
         #expect(m.summary.failedCount == 0)
-        #expect(m.targets.count == 4)
+        #expect(m.targets.count == 5, "v0.1.1 added tvOS as the 5th target")
         #expect(m.swiftVersion.contains("Swift"))
     }
 
-    @Test("Shipped manifest's per-target split matches v0.1.0 release-notes numbers",
+    @Test("Shipped manifest's per-target split matches v0.1.1 release-notes numbers",
           .enabled(if: goldenAvailable))
     func goldenPerTargetShape() throws {
         let data = try Data(contentsOf: URL(fileURLWithPath: Self.goldenPath))
         let m = try JSONDecoder().decode(Manifest.self, from: data)
-        // From the v0.1.0 release notes:
-        //   221 macOS / 40 iOS / 3 visionOS / 1 watchOS
-        #expect(m.summary.slugsPerTarget["arm64-apple-macos15"] == 221)
-        #expect(m.summary.slugsPerTarget["arm64-apple-ios18"] == 40)
+        // From the v0.1.1 release notes:
+        //   223 macOS / 41 iOS / 3 visionOS / 1 watchOS / 1 tvOS (TVUIKit)
+        #expect(m.summary.slugsPerTarget["arm64-apple-macos15"] == 223)
+        #expect(m.summary.slugsPerTarget["arm64-apple-ios18"] == 41)
         #expect(m.summary.slugsPerTarget["arm64-apple-xros2"] == 3)
         #expect(m.summary.slugsPerTarget["arm64_32-apple-watchos11"] == 1)
-        #expect(m.summary.slugsPerTarget.values.reduce(0, +) == 265)
+        #expect(m.summary.slugsPerTarget["arm64-apple-tvos18"] == 1)
+        #expect(m.summary.slugsPerTarget.values.reduce(0, +) == 269)
     }
 
     @Test("Every result in the shipped manifest carries a non-empty slug + valid status",
