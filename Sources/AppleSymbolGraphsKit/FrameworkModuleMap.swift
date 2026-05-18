@@ -175,7 +175,7 @@ public enum FrameworkModuleMap {
         "tvmlkit":                                   "TVMLKit is Obj-C only; no Swift module in SDK",
         "tvos-release-notes":                        "documentation-only page (slug contains hyphen/underscore; not a framework module name)",
         "tvservices":                                "no Swift module in any Xcode SDK (macOS / iOS / watchOS / visionOS / DriverKit); likely an Obj-C/C++ framework, documentation umbrella, or legacy/private surface",
-        "tvuikit":                                   "tvOS-only Swift module; would extract under an appletvos SDK target which is not currently configured in cupertino-symbolgraphs-gen",
+        // "tvuikit" moved to curated in cupertino-symbolgraphs#2 (extracts under appletvos SDK target now that we configure that target by default)
         "updates":                                   "documentation umbrella for what-new-in pages, not a framework",
         "usbdriverkit":                              "DriverKit family framework; Obj-C/C++ only; DriverKit SDK ships zero .swiftmodule files",
         "usbserialdriverkit":                        "DriverKit family framework; Obj-C/C++ only; DriverKit SDK ships zero .swiftmodule files",
@@ -538,5 +538,8 @@ public enum FrameworkModuleMap {
         // MARK: - Brew-DB completeness audit additions (real Swift modules, probed-and-verified)
         "pushtotalk": "PushToTalk",     // iOS, ~290 KB symbol graph
         "screensaver": "ScreenSaver",   // macOS-only, ~28 KB symbol graph
+
+        // MARK: - tvOS-only (require appletvos SDK target; cupertino-symbolgraphs#2)
+        "tvuikit": "TVUIKit",           // tvOS-only, ~336 KB, requires arm64-apple-tvos18
     ]
 }

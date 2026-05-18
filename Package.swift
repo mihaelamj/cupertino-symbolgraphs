@@ -46,6 +46,7 @@ let package = Package(
             // unhandled file under the test target dir.
             resources: [
                 .copy("Fixtures/cupertino-brew-framework-slugs-v1.0.2.txt"),
+                .copy("Fixtures/cupertino-dev-framework-slugs-v1.0.x.txt"),
             ]
         ),
     ]

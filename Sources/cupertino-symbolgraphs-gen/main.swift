@@ -53,6 +53,12 @@ struct Tool: AsyncParsableCommand {
     @Option(name: .long, help: "visionOS target triple (default arm64-apple-xros2).")
     var xrosTarget: String = "arm64-apple-xros2"
 
+    @Option(name: .long, help: "AppleTVOS SDK path (defaults to `xcrun --sdk appletvos --show-sdk-path`). Set empty to disable the tvOS fallback.")
+    var appletvosSdkPath: String?
+
+    @Option(name: .long, help: "tvOS target triple (default arm64-apple-tvos18).")
+    var appletvosTarget: String = "arm64-apple-tvos18"
+
     @Flag(name: .long, inversion: .prefixedNo, help: "Validate the result against the SDK's .swiftmodule ground truth and surface drift (default: on).")
     var validate: Bool = true
 
@@ -66,7 +72,7 @@ struct Tool: AsyncParsableCommand {
         let outputURL = URL(fileURLWithPath: (output as NSString).expandingTildeInPath)
         try fm.createDirectory(at: outputURL, withIntermediateDirectories: true)
 
-        // Resolve SDKs. macOS is required; iOS/watchOS/visionOS are
+        // Resolve SDKs. macOS is required; iOS/watchOS/visionOS/tvOS are
         // best-effort fallbacks. `??` autoclosure can't host `await`,
         // so resolve explicitly.
         let macosSDK: String
@@ -79,9 +85,10 @@ struct Tool: AsyncParsableCommand {
             if let arg { return arg.isEmpty ? nil : arg }
             return try? await SDKModuleEnumerator.activeSDKPath(sdk: sdkName)
         }
-        let iosSDK     = await resolveOptional(arg: iosSdkPath,     sdkName: "iphoneos")
-        let watchosSDK = await resolveOptional(arg: watchosSdkPath, sdkName: "watchos")
-        let xrosSDK    = await resolveOptional(arg: xrosSdkPath,    sdkName: "xros")
+        let iosSDK       = await resolveOptional(arg: iosSdkPath,       sdkName: "iphoneos")
+        let watchosSDK   = await resolveOptional(arg: watchosSdkPath,   sdkName: "watchos")
+        let xrosSDK      = await resolveOptional(arg: xrosSdkPath,      sdkName: "xros")
+        let appletvosSDK = await resolveOptional(arg: appletvosSdkPath, sdkName: "appletvos")
 
         // The `playgrounds/` framework dir under each SDK holds
         // LiveExecutionResultsRuntime, which isn't on the default
@@ -104,6 +111,10 @@ struct Tool: AsyncParsableCommand {
         if let xrosSDK {
             targets.append(ExtractionTarget(sdkPath: xrosSDK, targetTriple: xrosTarget,
                                             extraFrameworkSearchPaths: [playgroundsPath(for: xrosSDK)]))
+        }
+        if let appletvosSDK {
+            targets.append(ExtractionTarget(sdkPath: appletvosSDK, targetTriple: appletvosTarget,
+                                            extraFrameworkSearchPaths: [playgroundsPath(for: appletvosSDK)]))
         }
         print("Output: \(outputURL.path)")
         for (i, t) in targets.enumerated() {
