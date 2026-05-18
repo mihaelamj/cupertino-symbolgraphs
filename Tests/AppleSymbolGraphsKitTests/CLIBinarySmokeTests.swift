@@ -110,4 +110,47 @@ struct CLIBinarySmokeTests {
         #expect(out.contains("watchos"))
         #expect(out.contains("xros") || out.contains("visionos"))
     }
+
+    @Test("--dry-run advertised in --help (cupertino-symbolgraphs#4)",
+          .enabled(if: binAvailable))
+    func dryRunInHelp() throws {
+        let r = try run(["--help"])
+        #expect(r.exitCode == 0)
+        #expect(r.stdout.contains("--dry-run"), "--dry-run flag missing from --help output")
+    }
+
+    @Test("--dry-run prints routing for every slug + exits 0 + creates NO output dir",
+          .enabled(if: binAvailable))
+    func dryRunPrintsRoutingAndDoesNotCreateOutput() throws {
+        // Use a unique output path so we can assert it wasn't created.
+        let outputPath = "/tmp/sg-dryrun-test-\(UUID().uuidString)"
+        let r = try run(["--output", outputPath, "--dry-run"])
+        #expect(r.exitCode == 0, "dry-run should exit 0, got \(r.exitCode); stderr: \(r.stderr)")
+
+        // Output dir must not exist (--dry-run short-circuits before createDirectory).
+        #expect(!FileManager.default.fileExists(atPath: outputPath),
+                "--dry-run created output dir at \(outputPath); should not")
+
+        // Stdout shape:
+        let out = r.stdout
+        #expect(out.contains("--dry-run"), "header should mention --dry-run mode")
+        #expect(out.contains("SLUG"), "should print SLUG/ROUTING header")
+        #expect(out.contains("ROUTING"), "should print SLUG/ROUTING header")
+        #expect(out.contains("Summary:"), "should print summary line")
+
+        // At least one curated row (SwiftUI) + at least one skipped row (sirikit).
+        #expect(out.contains("swiftui") && out.contains("curated:SwiftUI"),
+                "expected 'swiftui' row to be routed as 'curated:SwiftUI'")
+        #expect(out.contains("sirikit") && out.contains("skipped:"),
+                "expected 'sirikit' row to be routed as 'skipped:'")
+    }
+
+    @Test("--dry-run output is deterministic (sorted by slug, no extraction noise)",
+          .enabled(if: binAvailable))
+    func dryRunDeterministic() throws {
+        let r1 = try run(["--output", "/tmp/sg-dryrun-d1", "--dry-run"])
+        let r2 = try run(["--output", "/tmp/sg-dryrun-d2", "--dry-run"])
+        #expect(r1.exitCode == 0 && r2.exitCode == 0)
+        #expect(r1.stdout == r2.stdout, "--dry-run output drifted between runs (non-deterministic)")
+    }
 }

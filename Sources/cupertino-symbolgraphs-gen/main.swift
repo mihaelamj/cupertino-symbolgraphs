@@ -56,11 +56,23 @@ struct Tool: AsyncParsableCommand {
     @Flag(name: .long, inversion: .prefixedNo, help: "Validate the result against the SDK's .swiftmodule ground truth and surface drift (default: on).")
     var validate: Bool = true
 
+    @Flag(name: .long, help: "Print the planned input list + per-slug routing decision (curated module name vs knownNonExtractable reason) without spawning any xcrun calls or writing output files.")
+    var dryRun: Bool = false
+
     func run() async throws {
         // Disable stdout block buffering so progress prints land in the
         // log immediately (otherwise prints buffer until process exit
         // when stdout is redirected to a file).
         setbuf(stdout, nil)
+
+        // --dry-run short-circuit: print the routing plan + exit 0
+        // without spawning xcrun, without creating output dirs.
+        // The --output argument is required by ArgumentParser but
+        // not actually used in dry-run mode.
+        if dryRun {
+            try Self.runDryRun()
+            return
+        }
 
         let fm = FileManager.default
         let outputURL = URL(fileURLWithPath: (output as NSString).expandingTildeInPath)
@@ -236,5 +248,44 @@ struct Tool: AsyncParsableCommand {
         proc.waitUntilExit()
         let data = out.fileHandleForReading.readDataToEndOfFile()
         return String(decoding: data, as: UTF8.self).split(separator: "\n").first.map(String.init) ?? ""
+    }
+
+    /// Print the planned input list + per-slug routing without
+    /// spawning xcrun or writing output files. The full list combines
+    /// `FrameworkModuleMap.allCuratedSlugs` (extractable, prints
+    /// `curated:<ModuleName>`) and `FrameworkModuleMap.knownNonExtractable.keys`
+    /// (short-circuited to `Status.skipped`, prints
+    /// `skipped:<short-reason>`), sorted by slug for stable diffs.
+    /// Ends with a summary line showing the curated/skipped split.
+    static func runDryRun() throws {
+        let curated = FrameworkModuleMap.curated
+        let nonExtractable = FrameworkModuleMap.knownNonExtractable
+        let allSlugs = (Set(curated.keys).union(nonExtractable.keys)).sorted()
+
+        // Pretty column width: longest slug + 4 spaces of padding.
+        let slugColumnWidth = (allSlugs.map(\.count).max() ?? 30) + 4
+
+        print("# cupertino-symbolgraphs-gen --dry-run")
+        print("# \(allSlugs.count) slugs total: \(curated.count) curated + \(nonExtractable.count) knownNonExtractable")
+        print("#")
+        print("# \("SLUG".padding(toLength: slugColumnWidth, withPad: " ", startingAt: 0))ROUTING")
+        for slug in allSlugs {
+            let slugPadded = slug.padding(toLength: slugColumnWidth, withPad: " ", startingAt: 0)
+            if let module = curated[slug] {
+                print("\(slugPadded)curated:\(module)")
+            } else if let reason = nonExtractable[slug] {
+                // Truncate the reason at 80 chars so the columnar output
+                // stays readable; full text is in the source.
+                let truncated = reason.count > 80
+                    ? String(reason.prefix(77)) + "..."
+                    : reason
+                print("\(slugPadded)skipped:\(truncated)")
+            } else {
+                // Defensive: shouldn't happen since we union both keys.
+                print("\(slugPadded)UNROUTED (bug)")
+            }
+        }
+        print()
+        print("Summary: \(allSlugs.count) total / \(curated.count) curated / \(nonExtractable.count) skipped / 0 unknown")
     }
 }
