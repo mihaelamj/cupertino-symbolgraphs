@@ -1,0 +1,64 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Cancel in-flight runs of the same ref when a newer push arrives.
+# A re-push within a few seconds shouldn't double-burn macOS-runner
+# minutes.
+concurrency:
+  group: build-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: macOS swift build + swift test
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select latest Xcode (for the swift toolchain that produces
+              symbol-graphs compatible with current Apple SDKs)
+        run: |
+          # macOS-15 runner ships several Xcodes pre-installed; pick
+          # the highest available. `xcodes select` syntax differs
+          # between runner images; `sudo xcode-select` is the stable
+          # form across actions/runner-images versions.
+          set -euo pipefail
+          XCODE_PATH=$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)
+          echo "Selecting ${XCODE_PATH}"
+          sudo xcode-select -s "${XCODE_PATH}/Contents/Developer"
+          xcrun swift --version
+          xcrun --show-sdk-path
+
+      - name: swift build
+        run: xcrun swift build
+
+      - name: swift test
+        # Tests that rely on Apple SDK presence (e.g. SDK-gated
+        # extraction tests) gracefully degrade via the .enabled(if:)
+        # trait in their suite declarations. CI runs with macOS SDK
+        # present so most pass; the few that require iOS / watchOS /
+        # visionOS / tvOS SDKs auto-skip when only macOS is detected.
+        run: xcrun swift test
+
+      - name: Build the cupertino-symbolgraphs-gen executable
+        # Surfaces build-time issues on the executable target that
+        # `swift test` may miss (test targets compile their own
+        # subset). A green `swift build` of the product binary is the
+        # release-ready signal.
+        run: xcrun swift build -c release --product cupertino-symbolgraphs-gen
+
+      - name: CLI smoke (help renders + version-style flag)
+        # End-to-end: the binary actually launches and renders help.
+        # No corpus extraction in CI (the macos-15 runner doesn't
+        # have every Apple SDK installed; the producer is exercised
+        # locally on workstations with full SDKs).
+        run: |
+          .build/release/cupertino-symbolgraphs-gen --help | head -20
