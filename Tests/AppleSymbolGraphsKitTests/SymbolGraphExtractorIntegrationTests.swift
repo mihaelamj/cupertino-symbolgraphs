@@ -9,7 +9,7 @@ import Testing
 /// regenerator run.
 ///
 /// Skip when xcrun isn't on PATH (a sub-set of CI environments).
-@Suite("SymbolGraphExtractor — end-to-end against real SDK")
+@Suite("SymbolGraphExtractor; end-to-end against real SDK")
 struct SymbolGraphExtractorIntegrationTests {
     private static let xcrunAvailable: Bool = FileManager.default.fileExists(atPath: "/usr/bin/xcrun")
 

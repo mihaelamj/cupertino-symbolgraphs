@@ -2,7 +2,7 @@
 import Foundation
 import Testing
 
-@Suite("FrameworkModuleMap — curated mapper")
+@Suite("FrameworkModuleMap; curated mapper")
 struct FrameworkModuleMapTests {
     @Test("Resolves canonical Apple slugs via curated table")
     func curatedKnown() {
@@ -37,7 +37,7 @@ struct FrameworkModuleMapTests {
     @Test("Curated map covers cupertino's core surface (≥225 entries)")
     func curatedSizeFloor() {
         // Floor catches accidental shrinkage. Bump as we extend.
-        #expect(FrameworkModuleMap.curated.count >= 225, "curated entries dropped — found \(FrameworkModuleMap.curated.count)")
+        #expect(FrameworkModuleMap.curated.count >= 225, "curated entries dropped; found \(FrameworkModuleMap.curated.count)")
     }
 
     @Test("knownNonExtractable carries human-readable reasons")
@@ -75,7 +75,7 @@ struct FrameworkModuleMapTests {
 
     @Test("Public API surface is stable for downstream consumers")
     func publicAPI() {
-        // These calls compile + return — proves the access levels needed
+        // These calls compile + return; proves the access levels needed
         // by cupertino-symbolgraphs-gen (a sibling target) are exported.
         _ = FrameworkModuleMap.curated["foundation"]
         _ = FrameworkModuleMap.knownNonExtractable["sirikit"]
@@ -89,7 +89,7 @@ struct FrameworkModuleMapTests {
         // v0.1.0 shipped with exactly 9 known-non-extractable slugs.
         // Bump this floor as future slugs are added.
         #expect(FrameworkModuleMap.knownNonExtractable.count >= 9,
-                "knownNonExtractable shrunk — \(FrameworkModuleMap.knownNonExtractable.count) entries")
+                "knownNonExtractable shrunk; \(FrameworkModuleMap.knownNonExtractable.count) entries")
     }
 
     @Test("Every knownNonExtractable slug is reachable via moduleName(for:) too")
@@ -139,7 +139,7 @@ struct FrameworkModuleMapTests {
         // For a single-character slug all variants might collapse.
         let variants = SymbolGraphExtractor.variantsToTry(for: "foundation")
         #expect(variants.first == "Foundation")
-        // PascalCase fallback of "foundation" is also "Foundation" — should de-dupe.
+        // PascalCase fallback of "foundation" is also "Foundation"; should de-dupe.
         #expect(variants.filter { $0 == "Foundation" }.count == 1)
     }
 }

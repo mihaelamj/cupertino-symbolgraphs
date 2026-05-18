@@ -2,7 +2,7 @@
 import Foundation
 import Testing
 
-@Suite("ExtractionResult — Codable round-trip across all 3 statuses")
+@Suite("ExtractionResult; Codable round-trip across all 3 statuses")
 struct ExtractionResultCodableTests {
     @Test("Status.ok round-trips through JSON unchanged")
     func okRoundTrip() throws {

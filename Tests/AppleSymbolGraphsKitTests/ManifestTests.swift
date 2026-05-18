@@ -2,7 +2,7 @@
 import Foundation
 import Testing
 
-@Suite("Manifest — schema + aggregation")
+@Suite("Manifest; schema + aggregation")
 struct ManifestTests {
     private func sampleResults() -> [ExtractionResult] {
         [
@@ -89,7 +89,7 @@ struct ManifestTests {
     }
 }
 
-@Suite("SymbolGraphExtractor — directory hygiene")
+@Suite("SymbolGraphExtractor; directory hygiene")
 struct ExtractorHygieneTests {
     @Test("emptyDirectoryContents removes children but keeps the dir")
     func emptyDirRemovesChildrenOnly() throws {

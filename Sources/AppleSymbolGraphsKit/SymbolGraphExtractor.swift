@@ -7,7 +7,11 @@ import Foundation
 /// and returns on first success, so primary should be the platform
 /// whose surface you care most about; fallbacks pick up the residue.
 public struct ExtractionTarget: Sendable, Codable {
+    /// Absolute path to the SDK that backs this target. Passed to
+    /// `swift symbolgraph-extract` as the `-sdk` argument.
     public let sdkPath: String
+    /// Compiler target triple (e.g. `arm64-apple-macos15`). Passed
+    /// to `swift symbolgraph-extract` as the `-target` argument.
     public let targetTriple: String
     /// Extra `-F` framework search paths to pass to
     /// `symbolgraph-extract` for modules that live outside the
@@ -24,14 +28,17 @@ public struct ExtractionTarget: Sendable, Codable {
 
 /// Per-framework result of one extraction attempt.
 public struct ExtractionResult: Sendable, Codable {
+    /// Outcome categories the extractor reports for one slug.
     public enum Status: String, Sendable, Codable {
+        /// Extraction produced at least one non-empty `.symbols.json`
+        /// file under the output dir.
         case ok
         /// Tried every variant against every target, none produced output.
         /// Usually means the framework is iOS/watchOS/visionOS-only and we
         /// don't have that SDK, or the slug is mapped to the wrong module
         /// name.
         case failed
-        /// Intentionally not attempted — slug is in
+        /// Intentionally not attempted; slug is in
         /// `FrameworkModuleMap.knownNonExtractable` because the framework
         /// isn't a Swift module in any SDK (server-side REST API, separate
         /// SPM package, Xcode-platform-only test framework, doc-only tool,
@@ -47,10 +54,15 @@ public struct ExtractionResult: Sendable, Codable {
     /// last-tried target on failure). Useful for downstream consumers
     /// that want to know "is this the iOS surface or the macOS surface?".
     public let targetTriple: String
+    /// Categorical outcome (see `Status`).
     public let status: Status
+    /// Sum-of-file-sizes across the slug's output directory. Zero for
+    /// non-OK status; non-zero for OK.
     public let sizeBytes: Int
+    /// Number of `.symbols.json` files produced (1 for the primary
+    /// module, plus one per cross-module extension). Zero for non-OK.
     public let fileCount: Int
-    /// First line of stderr from the last attempt — populated only on failure.
+    /// First line of stderr from the last attempt; populated only on failure.
     public let errorMessage: String?
 
     public init(
@@ -79,6 +91,8 @@ public struct SymbolGraphExtractor {
     /// Ordered list of (SDK, target) pairs to try per slug. The first
     /// pair that produces non-empty output wins. Typically [macOS, iOS].
     public let targets: [ExtractionTarget]
+    /// Output root directory; the extractor writes one subdirectory
+    /// per OK slug (`<outputRoot>/<slug>/<Module>.symbols.json`).
     public let outputRoot: URL
 
     public init(targets: [ExtractionTarget], outputRoot: URL) {

@@ -2,7 +2,7 @@ import AppleSymbolGraphsKit
 import ArgumentParser
 import Foundation
 
-/// `cupertino-symbolgraphs-gen` — regenerate the Apple SDK symbolgraph
+/// `cupertino-symbolgraphs-gen`; regenerate the Apple SDK symbolgraph
 /// corpus from the active Swift toolchain.
 ///
 /// Run when:
@@ -162,7 +162,7 @@ struct Tool: AsyncParsableCommand {
                 .union(["MapKitSwiftBridge"])
             let internalPrefixes = ["_", "Swift"]
             // Curate the "real" private-module names we explicitly want
-            // to silence — they exist as .swiftmodule but aren't user-facing
+            // to silence; they exist as .swiftmodule but aren't user-facing
             // and aren't part of cupertino's apple-docs corpus.
             let silencedModules: Set<String> = [
                 "SwiftOnoneSupport", "SwiftShims", "Runtime", "SwiftUICore",

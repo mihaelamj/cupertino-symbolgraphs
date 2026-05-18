@@ -1,4 +1,4 @@
-# cupertino apple-docs framework slugs — fixture for completeness regression test
+# cupertino apple-docs framework slugs; fixture for completeness regression test
 # Source: cupertino brew DB on the Studio machine
 # Captured: 2026-05-18T02:25:10+0200
 # Slug count: 398

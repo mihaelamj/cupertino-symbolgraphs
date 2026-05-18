@@ -5,7 +5,7 @@ import Testing
 /// Edge-case + invariant suite. The headline tests in
 /// `FrameworkModuleMapTests` cover the happy paths; this file pins
 /// the boundary behaviour future contributors might quietly break.
-@Suite("FrameworkModuleMap — edge cases + invariants")
+@Suite("FrameworkModuleMap; edge cases + invariants")
 struct FrameworkModuleMapEdgeTests {
     @Test("moduleName(for:) returns the curated value when present (not PascalCase)")
     func curatedWinsOverPascalCase() {
@@ -78,7 +78,7 @@ struct FrameworkModuleMapEdgeTests {
 
     @Test("PascalCase fallback preserves multi-char tokens unchanged after first cap")
     func pascalCaseFallbackPreservesTail() {
-        // The fallback only capitalizes the first character — the tail
+        // The fallback only capitalizes the first character; the tail
         // is preserved verbatim. Documents the limitation that
         // multi-word slugs like 'foobarkit' become 'Foobarkit' not 'FooBarKit'.
         #expect(FrameworkModuleMap.pascalCaseFallback("foobarkit") == "Foobarkit")

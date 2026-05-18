@@ -9,28 +9,31 @@ import Testing
 ///
 /// If this test fails, it means one of:
 /// 1. Cupertino's apple-docs corpus shipped a new framework we don't
-///    yet route (real coverage gap — add to curated or knownNonExtractable).
+///    yet route (real coverage gap; add to curated or knownNonExtractable).
 /// 2. Someone deleted an entry from FrameworkModuleMap that we need
-///    (regression — restore the entry).
+///    (regression; restore the entry).
 ///
 /// Fixture update protocol: re-snapshot the brew DB framework list,
 /// bump the fixture file's `-vX.Y.Z` suffix to match the cupertino
 /// release the snapshot was taken from, update `fixtureFilename` below.
-@Suite("Brew DB coverage — completeness regression")
+@Suite("Brew DB coverage; completeness regression")
 struct BrewDBCoverageTests {
     /// Filename of the most-recent brew DB framework fixture this
     /// repo asserts coverage against.
     private static let fixtureFilename = "cupertino-brew-framework-slugs-v1.0.2.txt"
 
-    /// Read the fixture from the Tests/Fixtures/ dir.
-    /// Returns the sorted set of slug strings (one per non-comment line).
+    /// Read the fixture from the test bundle's resources. The fixture
+    /// is declared as `.copy(...)` in Package.swift's testTarget, so
+    /// SwiftPM bundles it into the test binary; `Bundle.module` gives
+    /// us a portable lookup that doesn't depend on the CWD.
     private static func loadFixture() throws -> Set<String> {
-        // SwiftPM doesn't bundle test resources unless declared in
-        // Package.swift's testTarget(resources:). The fixture lives in
-        // a known relative path from the package root; tests run from
-        // that root, so a file path lookup works.
-        let fixturePath = "Tests/AppleSymbolGraphsKitTests/Fixtures/\(fixtureFilename)"
-        let url = URL(fileURLWithPath: fixturePath)
+        let base = (fixtureFilename as NSString).deletingPathExtension
+        let ext = (fixtureFilename as NSString).pathExtension
+        guard let url = Bundle.module.url(forResource: base, withExtension: ext) else {
+            throw NSError(domain: "BrewDBCoverageTests", code: 1, userInfo: [
+                NSLocalizedDescriptionKey: "Bundle.module missing fixture '\(fixtureFilename)'; check Package.swift resources declaration",
+            ])
+        }
         let raw = try String(contentsOf: url, encoding: .utf8)
         var slugs: Set<String> = []
         for line in raw.split(separator: "\n") {
@@ -78,7 +81,7 @@ struct BrewDBCoverageTests {
             "charts", "observation",
         ]
         for slug in mustBeExtractable {
-            #expect(brew.contains(slug), "fixture missing canonical slug '\(slug)' — fixture out of date?")
+            #expect(brew.contains(slug), "fixture missing canonical slug '\(slug)'; fixture out of date?")
             #expect(curated.contains(slug), "canonical Apple slug '\(slug)' not in curated map (it's in brew DB → must be extractable)")
         }
     }
@@ -92,7 +95,7 @@ struct BrewDBCoverageTests {
         let mustNotBeNonExtractable = ["swiftui", "uikit", "foundation", "combine", "appkit"]
         for slug in mustNotBeNonExtractable {
             #expect(!nonExtractable.contains(slug),
-                    "canonical slug '\(slug)' was moved to knownNonExtractable — that's wrong, it's a real Swift module")
+                    "canonical slug '\(slug)' was moved to knownNonExtractable; that's wrong, it's a real Swift module")
         }
     }
 
@@ -111,6 +114,6 @@ struct BrewDBCoverageTests {
         // Both numbers should be ≥ floors; pct ≥ 50%.
         #expect(inCurated >= 250, "curated coverage of brew dropped: \(inCurated) (floor 250)")
         #expect(inNonExtractable >= 100, "knownNonExtractable coverage of brew dropped: \(inNonExtractable) (floor 100)")
-        #expect(pct >= 50.0, "curated covers only \(pct)% of brew — should be ≥ 50%")
+        #expect(pct >= 50.0, "curated covers only \(pct)% of brew; should be ≥ 50%")
     }
 }

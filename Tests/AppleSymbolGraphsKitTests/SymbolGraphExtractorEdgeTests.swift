@@ -7,12 +7,12 @@ import Testing
 /// `SymbolGraphExtractorIntegrationTests`; this file pins logic in the
 /// variant generator + the multi-target ordering + the FX-search-path
 /// argument plumbing.
-@Suite("SymbolGraphExtractor — pure-logic edge cases")
+@Suite("SymbolGraphExtractor; pure-logic edge cases")
 struct SymbolGraphExtractorEdgeTests {
     @Test("variantsToTry: curated entry leads the list when present")
     func curatedLeadsVariants() {
         // SwiftUI's curated name "SwiftUI" differs from the PascalCase
-        // fallback "Swiftui" — the curated form must be tried first
+        // fallback "Swiftui"; the curated form must be tried first
         // because it's the only one the extractor will actually accept.
         let variants = SymbolGraphExtractor.variantsToTry(for: "swiftui")
         #expect(variants.first == "SwiftUI", "expected 'SwiftUI' to lead, got \(variants)")
@@ -23,7 +23,7 @@ struct SymbolGraphExtractorEdgeTests {
         // A slug not in the curated map: PascalCase fallback should
         // appear first (since curated injects nothing).
         let variants = SymbolGraphExtractor.variantsToTry(for: "imaginary-framework-slug-xyz")
-        // Note the hyphen — the slug is preserved verbatim in non-PascalCase variants.
+        // Note the hyphen; the slug is preserved verbatim in non-PascalCase variants.
         #expect(variants.first == "Imaginary-framework-slug-xyz",
                 "expected PascalCase fallback first, got \(variants)")
     }
@@ -52,7 +52,7 @@ struct SymbolGraphExtractorEdgeTests {
     @Test("variantsToTry: empty slug returns empty (or single empty entry)")
     func emptySlugVariants() {
         // Defensive: empty slug. PascalCase("") = "", upper("") = "",
-        // de-dup collapses to one empty entry — extractor will short-
+        // de-dup collapses to one empty entry; extractor will short-
         // circuit at xcrun anyway. The pure helper just shouldn't crash.
         let variants = SymbolGraphExtractor.variantsToTry(for: "")
         // No crash → pass. Document: produces at most one entry (after dedup).

@@ -2,7 +2,7 @@
 import Foundation
 import Testing
 
-@Suite("SDKModuleEnumerator — SDK resolution + module discovery")
+@Suite("SDKModuleEnumerator; SDK resolution + module discovery")
 struct SDKModuleEnumeratorTests {
     /// Skip integration cases when xcrun isn't available (e.g. CI without
     /// Xcode). All these tests need a working `xcrun` + at least the
@@ -27,7 +27,7 @@ struct SDKModuleEnumeratorTests {
         // CommandLineTools paths are under /Library/Developer/CommandLineTools/
         // and lack the iOSSupport cryptex.
         let hasModules = (try? SDKModuleEnumerator.swiftModules(at: path).count) ?? 0
-        #expect(hasModules > 100, "activeSDKPath() resolved an SDK with only \(hasModules) Swift modules — likely CommandLineTools instead of Xcode's MacOSX SDK")
+        #expect(hasModules > 100, "activeSDKPath() resolved an SDK with only \(hasModules) Swift modules; likely CommandLineTools instead of Xcode's MacOSX SDK")
     }
 
     @Test("activeSDKPath(sdk:) resolves named SDKs", .enabled(if: xcrunAvailable))
@@ -56,9 +56,9 @@ struct SDKModuleEnumeratorTests {
         // Foundation + Swift stdlib are non-negotiable on any macOS SDK.
         #expect(modules.contains("Foundation"), "macOS SDK is missing Foundation? found \(modules.count) modules")
         #expect(modules.contains("Swift"))
-        // SwiftUI is in the iOSSupport cryptex on macOS — proves the
+        // SwiftUI is in the iOSSupport cryptex on macOS; proves the
         // cryptex paths are being walked (the bug the v0.1.0 fix closed).
-        #expect(modules.contains("SwiftUI"), "SwiftUI not found — cryptex path likely not walked")
+        #expect(modules.contains("SwiftUI"), "SwiftUI not found; cryptex path likely not walked")
     }
 
     @Test("swiftModules(at:) returns sorted unique values", .enabled(if: xcrunAvailable))

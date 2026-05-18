@@ -40,7 +40,13 @@ let package = Package(
         ),
         .testTarget(
             name: "AppleSymbolGraphsKitTests",
-            dependencies: ["AppleSymbolGraphsKit"]
+            dependencies: ["AppleSymbolGraphsKit"],
+            // Fixture file the BrewDBCoverageTests suite reads at runtime;
+            // declared explicitly so SwiftPM doesn't warn about an
+            // unhandled file under the test target dir.
+            resources: [
+                .copy("Fixtures/cupertino-brew-framework-slugs-v1.0.2.txt"),
+            ]
         ),
     ]
 )

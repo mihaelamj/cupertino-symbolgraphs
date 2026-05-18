@@ -3,7 +3,7 @@ import Testing
 
 /// Smoke tests for the `cupertino-symbolgraphs-gen` binary itself
 /// (the executable target, not the library). These spawn the built
-/// binary via Process and assert on stdout/stderr — the only way to
+/// binary via Process and assert on stdout/stderr; the only way to
 /// cover the ArgumentParser surface from inside the test target since
 /// the executable's symbols aren't importable.
 ///
@@ -14,7 +14,7 @@ import Testing
 ///
 /// Skipped if the binary isn't where we expect (caller may have built
 /// elsewhere or only built the library target).
-@Suite("cupertino-symbolgraphs-gen — CLI binary smoke")
+@Suite("cupertino-symbolgraphs-gen; CLI binary smoke")
 struct CLIBinarySmokeTests {
     /// Resolve the path to the built binary. Try debug first, then
     /// release. Returns nil if neither exists.

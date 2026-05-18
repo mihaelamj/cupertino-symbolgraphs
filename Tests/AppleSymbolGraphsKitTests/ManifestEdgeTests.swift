@@ -2,7 +2,7 @@
 import Foundation
 import Testing
 
-@Suite("Manifest — edge cases + invariants")
+@Suite("Manifest; edge cases + invariants")
 struct ManifestEdgeTests {
     @Test("Empty results produce a zeroed Summary, not a crash")
     func emptyResults() {
@@ -145,14 +145,14 @@ struct ManifestEdgeTests {
     }
 }
 
-@Suite("Manifest — golden-file regression against shipped v0.1.0")
+@Suite("Manifest; golden-file regression against shipped v0.1.0")
 struct ManifestGoldenFileTests {
     /// Path to the manifest committed in the git tree at the v0.1.0 tag.
     /// If this test fails, either (a) the shipped manifest changed shape
     /// and Manifest schema needs updating, or (b) Manifest schema changed
     /// and consumers reading the shipped corpus need re-pinning.
     private static let goldenPath: String = {
-        // Resolve via the package dir — same machine as the source tree.
+        // Resolve via the package dir; same machine as the source tree.
         let candidates = [
             "/Volumes/Code/DeveloperExt/public/cupertino-symbolgraphs/manifest.json",
         ]

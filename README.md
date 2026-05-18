@@ -6,7 +6,7 @@ Apple SDK symbolgraph corpus for [cupertino](https://github.com/mihaelamj/cupert
 
 `cupertino-symbolgraphs-gen` runs `xcrun swift symbolgraph-extract` for every Apple framework slug that appears in cupertino's apple-docs corpus, producing one `*.symbols.json` per module. The result is a per-Swift-version snapshot of Apple's public Swift API surface used by downstream tools (e.g. constraint extraction, conformance graph, availability matrix) that need authoritative SDK metadata rather than what's parseable from rendered HTML.
 
-The corpus is **not committed to this repo's git tree**. It's regenerated from the active Xcode toolchain via this binary and distributed via [GitHub Releases](https://github.com/mihaelamj/cupertino-symbolgraphs/releases) — one zip per Swift version. The git tree holds only the slug→module mapper, the extractor source, the validation step, and the manifest of the last published corpus.
+The corpus is **not committed to this repo's git tree**. It's regenerated from the active Xcode toolchain via this binary and distributed via [GitHub Releases](https://github.com/mihaelamj/cupertino-symbolgraphs/releases); one zip per Swift version. The git tree holds only the slug→module mapper, the extractor source, the validation step, and the manifest of the last published corpus.
 
 ## Coverage
 
@@ -18,7 +18,7 @@ Run `cupertino-symbolgraphs-gen` when any of these change:
 
 - **Xcode / CommandLineTools update** ships a new Swift compiler or new SDK headers
 - **macOS or iOS SDK target** bumps (the `--macos-target` / `--ios-target` flags)
-- **New Apple framework** appears in cupertino's apple-docs corpus that isn't in `FrameworkModuleMap.curated` yet — the validator's "module(s) present in SDK but not extracted" warning surfaces this
+- **New Apple framework** appears in cupertino's apple-docs corpus that isn't in `FrameworkModuleMap.curated` yet; the validator's "module(s) present in SDK but not extracted" warning surfaces this
 - **CHANGELOG-tracked Apple deprecation** that drops a previously-extracted framework
 
 After regenerating: publish the corpus as a new GitHub Release zip; update `cupertino`'s pinning to the new release.
@@ -51,8 +51,8 @@ The binary reports per-25-slug progress, validates the result against each SDK's
 | `Sources/AppleSymbolGraphsKit/SymbolGraphExtractor.swift` | Multi-target wrapper around `xcrun swift symbolgraph-extract`. For each `(sdk, target)` pair, tries `curated → PascalCase → slug → UPPERCASE` variants until first non-empty output. Short-circuits to `Status.skipped` when the slug is in `knownNonExtractable`. |
 | `Sources/AppleSymbolGraphsKit/SDKModuleEnumerator.swift` | Walks `<sdk>/usr/lib/swift` + `<sdk>/System/Library/{Frameworks,SubFrameworks,PrivateFrameworks}/*.framework/Modules/*.swiftmodule` to enumerate the SDK's authoritative Swift module list. Cross-SDK aware via `activeSDKPath(sdk:)`. |
 | `Sources/AppleSymbolGraphsKit/Manifest.swift` | Codable `manifest.json` schema (v3): per-corpus metadata, ordered `[TargetEntry]` list with versions, per-slug results, aggregate `(ok / skipped / failed)` counts + `bytesPerTarget` + `slugsPerTarget` splits. |
-| `Sources/cupertino-symbolgraphs-gen/main.swift` | CLI binary (ArgumentParser) — orchestrates extraction across all four SDKs + validation + manifest write. |
-| `Tests/AppleSymbolGraphsKitTests/` | 19 unit tests covering curated lookups, PascalCase + lowercase + drift fill-in, `knownNonExtractable` invariants, variant ordering + de-dup, Manifest aggregation + JSON round-trip, extractor hygiene. |
+| `Sources/cupertino-symbolgraphs-gen/main.swift` | CLI binary (ArgumentParser); orchestrates extraction across all four SDKs + validation + manifest write. |
+| `Tests/AppleSymbolGraphsKitTests/` | 81 tests in 12 suites covering: curated lookups + PascalCase fallback + lowercase modules + drift fill-in; `knownNonExtractable` invariants (disjoint, non-empty reasons, no shadow of canonical slugs); Manifest schema + aggregation + JSON round-trip; ExtractionResult Codable round-trip (all 3 statuses); SDKModuleEnumerator (cryptex paths, named SDKs); SymbolGraphExtractor variant ordering + multi-target chain + playgrounds rescue + end-to-end against real SDKs (Foundation/WatchKit/bogus); CLI binary smoke (spawns the built binary, asserts --help/missing-arg/unknown-flag); golden-file regression against shipped v0.1.0; brew-DB completeness regression (every cupertino apple-docs slug routed). |
 
 ## Validation
 
@@ -77,7 +77,7 @@ Splitting the extractor from any one consumer keeps the dependency direction cle
 | Extractor source | This git tree |
 | Validator source | This git tree |
 | Most-recent corpus manifest | This git tree (`manifest.json` in each release tag) |
-| The 1.3 GB corpus itself | [GitHub Releases](https://github.com/mihaelamj/cupertino-symbolgraphs/releases) — zip per Swift version |
+| The 1.3 GB corpus itself | [GitHub Releases](https://github.com/mihaelamj/cupertino-symbolgraphs/releases); zip per Swift version |
 
 The git tree stays small (sources + per-release manifest only); fetching a corpus is one `gh release download` call.
 

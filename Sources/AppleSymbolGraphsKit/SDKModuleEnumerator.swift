@@ -6,11 +6,11 @@ import Foundation
 /// `FrameworkModuleMap`-driven extraction is validated.
 ///
 /// Three locations to walk per SDK:
-/// 1. `<sdk>/usr/lib/swift/*.swiftmodule` — shared Swift modules
+/// 1. `<sdk>/usr/lib/swift/*.swiftmodule`; shared Swift modules
 ///    (Swift stdlib, Foundation, Concurrency, etc.)
-/// 2. `<sdk>/System/Library/Frameworks/*.framework/Modules/*.swiftmodule` —
+/// 2. `<sdk>/System/Library/Frameworks/*.framework/Modules/*.swiftmodule` -
 ///    public framework modules
-/// 3. `<sdk>/System/Library/{SubFrameworks,PrivateFrameworks}/...` —
+/// 3. `<sdk>/System/Library/{SubFrameworks,PrivateFrameworks}/...` -
 ///    sub-framework + private module overlays
 ///
 /// The enumeration is the answer to "what does this SDK actually
@@ -48,7 +48,7 @@ public enum SDKModuleEnumerator {
     /// on disk but the consumer typically does case-insensitive
     /// comparisons.
     public static func swiftModules(at sdkPath: String) throws -> [String] {
-        // Include the iOSSupport cryptex root for macOS SDKs — Apple
+        // Include the iOSSupport cryptex root for macOS SDKs; Apple
         // ships ~600 additional Swift modules under
         // `System/Cryptexes/OS/System/iOSSupport/System/Library/Frameworks`
         // (Mac Catalyst surface). Without this we miss BrowserKit,

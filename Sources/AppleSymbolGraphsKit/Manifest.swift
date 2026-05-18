@@ -10,8 +10,16 @@ public struct Manifest: Sendable, Codable {
     /// entries are fallbacks for platform-specific modules
     /// (iOS-only frameworks, etc.).
     public struct TargetEntry: Sendable, Codable {
+        /// Compiler target triple (e.g. `arm64-apple-macos15`,
+        /// `arm64-apple-ios18`). Passed to `swift symbolgraph-extract`
+        /// as the `-target` argument.
         public let targetTriple: String
+        /// Absolute path to the SDK that backs this target. Passed to
+        /// `swift symbolgraph-extract` as the `-sdk` argument.
         public let sdkPath: String
+        /// SDK version string read from the SDK's `SDKSettings.plist`
+        /// (e.g. `26.4`). Lets consumers detect when the corpus was
+        /// generated against an outdated SDK.
         public let sdkVersion: String
 
         public init(targetTriple: String, sdkPath: String, sdkVersion: String) {
@@ -34,17 +42,36 @@ public struct Manifest: Sendable, Codable {
     /// Convenience aggregates.
     public let summary: Summary
 
+    /// Convenience aggregates over `results`, computed at init time.
+    /// Lets consumers skim the corpus shape without scanning every row.
     public struct Summary: Sendable, Codable {
+        /// Total number of slugs the generator attempted
+        /// (curated + knownNonExtractable + any SDK-drift overflows).
         public let totalSlugs: Int
+        /// Number of slugs that extracted to at least one
+        /// `.symbols.json` file with non-zero size.
         public let okCount: Int
+        /// Number of slugs that failed extraction across every
+        /// `(variant, target)` combination tried.
         public let failedCount: Int
+        /// Number of slugs short-circuited to `Status.skipped` because
+        /// they appear in `FrameworkModuleMap.knownNonExtractable`.
         public let skippedCount: Int
+        /// Sum of `sizeBytes` across all OK results. The on-disk
+        /// `.symbols.json` total under the output root.
         public let totalBytes: Int
-        /// `(target triple → number of slugs resolved under this target)`.
+        /// `[target-triple: total-sizeBytes-resolved-under-this-target]`
+        /// across all OK results. Lets consumers see which platforms
+        /// carried the bulk of the corpus.
         public let bytesPerTarget: [String: Int]
+        /// `[target-triple: number-of-slugs-resolved-under-this-target]`
+        /// across all OK results. Companion to `bytesPerTarget`.
         public let slugsPerTarget: [String: Int]
     }
 
+    /// Schema version that `init` writes. Bump in lockstep with
+    /// changes to the `Manifest` shape; downstream consumers compare
+    /// against this when deciding whether their decoder still applies.
     public static let currentVersion: Int = 3
 
     public init(
