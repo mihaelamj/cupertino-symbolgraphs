@@ -55,6 +55,13 @@ public enum FrameworkModuleMap {
         "appstoreserverapi":   "server-side REST API, no client Swift module in any SDK",
         "carekit":             "separate open-source SPM package (carekit-apple/CareKit), not bundled with Xcode SDKs",
         "docc":                "documentation compiler tool, not a Swift module",
+        // over-coverage rationale (#5): mapkitswiftbridge is NOT in cupertino's apple-docs
+        // corpus (no dedicated docs page; the framework is nested inside MapKit.framework
+        // as MapKit.framework/MapKitSwiftBridge.framework/Modules/MapKitSwiftBridge.swiftmodule).
+        // We keep it in knownNonExtractable solely to silence the iOS + xros SDK validator
+        // drift report; without this entry the validator would emit
+        // "⚠️  1 module(s) present in SDK but not extracted: MapKitSwiftBridge" on every run.
+        // Surface lives under slug 'mapkit' (extracted normally as MapKit's .symbols.json).
         "mapkitswiftbridge":   "nested inside MapKit.framework (MapKit.framework/MapKitSwiftBridge.framework/Modules/), not standalone-extractable; surface lives under slug 'mapkit'",
         "photokit":            "marketing alias for the Photos framework; use slug 'photos' (module 'Photos') instead",
         "realitycomposerpro":  "Xcode-bundled tool, not a Swift module",
@@ -219,6 +226,12 @@ public enum FrameworkModuleMap {
         "foundation": "Foundation",
         "swift": "Swift",
         "dispatch": "Dispatch",
+        // over-coverage rationale (cupertino-symbolgraphs#5): Darwin is the Swift overlay
+        // over libc / POSIX C surface; ships in every Apple SDK. cupertino's apple-docs
+        // corpus doesn't index it (no dedicated /documentation/darwin page), but downstream
+        // consumers of the corpus (constraint generators, conformance walkers) often need
+        // to resolve type references that bottom out in Darwin types (CInt, time_t, …).
+        // Keeping extracted. Removing would also fire SDK validator drift.
         "darwin": "Darwin",
         "os": "os",
         "oslog": "OSLog",
@@ -439,6 +452,13 @@ public enum FrameworkModuleMap {
         "workoutkit": "WorkoutKit",
         "swiftdata": "SwiftData",
         // "testing": swift-testing package, see knownNonExtractable.
+        // over-coverage rationale (cupertino-symbolgraphs#5): OpenCL is the deprecated
+        // Apple OpenCL framework; ships as a Swift overlay in macOS SDK still (Apple
+        // hasn't removed it). cupertino's apple-docs corpus dropped the slug because
+        // the docs page is gone. We keep extracting because the .swiftmodule is still
+        // in the SDK; consumers reading the corpus shouldn't see a gap where the
+        // overlay still exists. Will become a brew-DB entry if cupertino re-adds the
+        // docs page (unlikely; Metal replaces it).
         "opencl": "OpenCL",
         "opengles": "OpenGLES",
         "opendirectory": "OpenDirectory",
@@ -467,10 +487,25 @@ public enum FrameworkModuleMap {
         // step in cupertino-symbolgraphs-gen)
         "mediaextension": "MediaExtension",
         "permissionkit": "PermissionKit",
+        // over-coverage rationale (#5): RealityFoundation is the underlying type system
+        // for RealityKit; ships its own .swiftmodule in macOS+iOS+visionOS SDKs.
+        // cupertino's apple-docs corpus indexes only realitykit (the higher-level API)
+        // not realityfoundation (the foundation types). We extract because consumers
+        // doing constraint propagation across RealityKit's generic Component types
+        // bottom out in RealityFoundation; without its symbols we'd see unresolved refs.
         "realityfoundation": "RealityFoundation",
         "relevancekit": "RelevanceKit",
+        // over-coverage rationale (#5): SecurityUI is the SwiftUI surface for Security
+        // (e.g. SecurityUI.LocalAuthenticationButton). Ships in macOS+iOS SDKs.
+        // cupertino's apple-docs corpus folds it under securityinterface / authenticationservices
+        // pages without a dedicated slug. Keeping extracted; the surface is small (~30 KB)
+        // but referenced by AuthenticationServices consumers.
         "securityui": "SecurityUI",
         "sensitivecontentanalysis": "SensitiveContentAnalysis",
+        // over-coverage rationale (#5): StickerKit is the iMessage stickers framework
+        // (iOS-only); ships its .swiftmodule. cupertino's apple-docs corpus dropped
+        // the dedicated slug when Apple consolidated stickers docs under Messages.
+        // We extract because the Codable surface is still public + non-trivial.
         "stickerkit": "StickerKit",
         "telephonymessagingkit": "TelephonyMessagingKit",
         "videosubscriberaccount": "VideoSubscriberAccount",
@@ -501,6 +536,13 @@ public enum FrameworkModuleMap {
         "immersivemediasupport": "ImmersiveMediaSupport",
         "lightweightcoderequirements": "LightweightCodeRequirements",
         "livecommunicationkit": "LiveCommunicationKit",
+        // over-coverage rationale (#5): LiveExecutionResultsRuntime lives under
+        // <sdk>/usr/lib/swift/playgrounds/ (NOT the standard module search path);
+        // rescued via the `playgroundsPath(for:)` -F injection in
+        // cupertino-symbolgraphs-gen/main.swift. cupertino's apple-docs corpus
+        // doesn't index it (Swift Playgrounds-specific). We extract because the
+        // .swiftmodule is reachable + Apple's symbolgraph-extract treats it as
+        // a public framework. Removing would fire SDK validator drift on macOS.
         "liveexecutionresultsruntime": "LiveExecutionResultsRuntime",
         "localauthenticationembeddedui": "LocalAuthenticationEmbeddedUI",
         "managedappdistribution": "ManagedAppDistribution",
@@ -532,6 +574,11 @@ public enum FrameworkModuleMap {
 
         // MARK: - visionOS-only (require xros SDK fallback)
         "foveatedstreaming": "FoveatedStreaming",
+        // over-coverage rationale (#5): VisionEntitlementServices is a visionOS-only
+        // private-ish framework for entitlement checks (passes through cupertino's
+        // apple-docs corpus filter as "no dedicated docs page"). The .swiftmodule
+        // ships in xros SDK; we extract because the API surface is small but referenced
+        // by entitlement-aware visionOS Swift code. Removing fires xros SDK validator drift.
         "visionentitlementservices": "VisionEntitlementServices",
         "touchcontroller": "TouchController",
 
