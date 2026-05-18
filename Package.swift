@@ -22,6 +22,15 @@ let package = Package(
             name: "cupertino-symbolgraphs-gen",
             targets: ["cupertino-symbolgraphs-gen"]
         ),
+        // Diagnostic CLI for one-off audits over a corpus + manifest
+        // (validate every .symbols.json decodes, cross-reference brew
+        // DB framework list, probe knownNonExtractable, per-framework
+        // stats, manifest summaries). Replaces ad-hoc Python heredocs
+        // with reusable Swift subcommands.
+        .executable(
+            name: "cupertino-symbolgraphs-audit",
+            targets: ["cupertino-symbolgraphs-audit"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.3.0"),
@@ -33,6 +42,13 @@ let package = Package(
         ),
         .executableTarget(
             name: "cupertino-symbolgraphs-gen",
+            dependencies: [
+                "AppleSymbolGraphsKit",
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            ]
+        ),
+        .executableTarget(
+            name: "cupertino-symbolgraphs-audit",
             dependencies: [
                 "AppleSymbolGraphsKit",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
