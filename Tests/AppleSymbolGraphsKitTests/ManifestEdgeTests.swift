@@ -151,12 +151,15 @@ struct ManifestGoldenFileTests {
     /// If this test fails, either (a) the shipped manifest changed shape
     /// and Manifest schema needs updating, or (b) Manifest schema changed
     /// and consumers reading the shipped corpus need re-pinning.
+    ///
+    /// Lookup strategy: the package root resolves via the CWD when
+    /// `swift test` runs (always the package root). Falls back to walking
+    /// up from this source file's location for direct-Xcode invocations.
+    /// Empty string means "not on this checkout"; the test is gated by
+    /// `goldenAvailable`.
     private static let goldenPath: String = {
-        // Resolve via the package dir; same machine as the source tree.
-        let candidates = [
-            "/Volumes/Code/DeveloperExt/public/cupertino-symbolgraphs/manifest.json",
-        ]
-        return candidates.first(where: { FileManager.default.fileExists(atPath: $0) }) ?? ""
+        let cwdCandidate = FileManager.default.currentDirectoryPath + "/manifest.json"
+        return FileManager.default.fileExists(atPath: cwdCandidate) ? cwdCandidate : ""
     }()
 
     private static let goldenAvailable: Bool = !goldenPath.isEmpty

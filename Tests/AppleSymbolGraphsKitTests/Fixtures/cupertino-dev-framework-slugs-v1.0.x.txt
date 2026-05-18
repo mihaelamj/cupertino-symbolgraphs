@@ -1,5 +1,5 @@
 # cupertino apple-docs framework slugs from the DEV-side DB
-# Source: /Users/mmj/.cupertino-dev/search.db (post iter-1+2+3 reindex)
+# Source: cupertino dev DB after iter-1+2+3 reindex
 # Captured: 2026-05-18T02:47:29+0200
 # Slug count: 398
 # Schema version: 17
