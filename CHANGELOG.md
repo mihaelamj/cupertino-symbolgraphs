@@ -8,6 +8,15 @@ The corpus itself is distributed via GitHub Releases as `corpus-vX.Y.Z.zip`; see
 
 ### Added
 
+- **`cupertino-symbolgraphs-audit` diagnostic CLI (3rd executable target, closes #10 / PR #11).** Three subcommands replace ad-hoc Python heredocs used during the v0.1.1 immaculate audit:
+  - `validate-corpus --directory <dir>` — decode every `.symbols.json`, assert valid JSON + minimum shape; CI-friendly exit codes
+  - `framework-stats --file <path>` — total symbols / with swiftGenerics / with constraints percentages from one `.symbols.json`
+  - `count-by-status --manifest <path>` — per-status counts + per-target byte/slug split + top-N largest extractions
+  - 10 smoke + real-data tests in `AuditCLIBinarySmokeTests`; numbers cross-verified against the v2-tvos corpus (UIKit 8.0% constrained, SwiftUI 33.0% constrained, validate 532/532 valid). Two deferred subcommands (`cross-ref-brew`, `probe-skipped`) tracked as follow-ups.
+- **tvOS as 5th SDK target + `tvuikit` rescue** (closes #2 / PR #7). cupertino-symbolgraphs-gen now extracts under macOS → iOS → watchOS → visionOS → tvOS in that order; TVUIKit lands under `arm64-apple-tvos18` (340 KB). Final corpus shape: 269 OK / 137 SKIP / 0 FAIL across 5 SDKs / 406 slugs total.
+- **GitHub Actions CI workflow** (closes #3 / PR #6). `.github/workflows/test.yml` on `macos-15`: checkout, build, test, separate release build of `cupertino-symbolgraphs-gen`, CLI smoke (`--help` renders). Concurrency cancellation, latest-Xcode selection. Runs on every push + PR to main.
+- **`--dry-run` / routing-inspection flag** (closes #4 / PR #8). Prints the planned input list + per-slug routing decision (curated vs knownNonExtractable) without spawning xcrun or creating output files. 3 smoke tests including short-circuit verification.
+- **DevDBParityTests** (PR #7 side-touch). New fixture `cupertino-dev-framework-slugs-v1.0.x.txt` captures the dev DB framework list; 3 tests cross-reference brew DB ↔ dev DB. Verified byte-identical at capture time.
 - **100% brew DB completeness coverage** (398 / 398 cupertino apple-docs slugs routed).
   - 3 new curated entries (real Swift modules previously missing): `pushtotalk` → `PushToTalk` (iOS), `screensaver` → `ScreenSaver` (macOS), `touchcontroller` → `TouchController` (visionOS).
   - 129 new `knownNonExtractable` entries with categorized reasons (22 REST/server-side, 7 web JS SDKs, 12 DriverKit, 10 deprecated frameworks, 21 docs-only pages, 57 "no Swift module").

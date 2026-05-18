@@ -111,6 +111,109 @@ struct AuditCLIBinarySmokeTests {
         #expect(r.stdout.contains("Valid:                     0"))
     }
 
+    @Test("count-by-status on a real synthetic manifest prints expected sections + counts",
+          .enabled(if: binAvailable))
+    func countByStatusRealData() throws {
+        // Build a tiny but realistic manifest.json on disk; run the
+        // binary against it; assert the actual stdout includes the
+        // sections + numbers we expect. Catches format-string crashes
+        // (we had a %s-with-Swift-String crash that ONLY surfaced when
+        // the subcommand had data to format; the --help-only test
+        // missed it).
+        let tmp = FileManager.default.temporaryDirectory
+            .appendingPathComponent("audit-countbystatus-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: tmp, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: tmp) }
+
+        let manifestJSON = """
+        {
+          "manifestVersion": 3,
+          "generatedAt": "2026-05-18T00:00:00Z",
+          "swiftVersion": "Apple Swift version 6.3.2",
+          "targets": [
+            { "targetTriple": "arm64-apple-macos15", "sdkPath": "/M", "sdkVersion": "26.5" },
+            { "targetTriple": "arm64-apple-ios18",   "sdkPath": "/I", "sdkVersion": "26.5" }
+          ],
+          "results": [
+            { "slug": "alpha",   "moduleName": "Alpha",   "targetTriple": "arm64-apple-macos15", "status": "ok",      "sizeBytes": 4096,  "fileCount": 1, "errorMessage": null },
+            { "slug": "beta",    "moduleName": "Beta",    "targetTriple": "arm64-apple-ios18",   "status": "ok",      "sizeBytes": 8192,  "fileCount": 2, "errorMessage": null },
+            { "slug": "skipper", "moduleName": "Skipper", "targetTriple": "arm64-apple-macos15", "status": "skipped", "sizeBytes": 0,     "fileCount": 0, "errorMessage": "test reason" }
+          ],
+          "summary": {
+            "totalSlugs": 3,
+            "okCount": 2,
+            "failedCount": 0,
+            "skippedCount": 1,
+            "totalBytes": 12288,
+            "bytesPerTarget": { "arm64-apple-macos15": 4096, "arm64-apple-ios18": 8192 },
+            "slugsPerTarget": { "arm64-apple-macos15": 1,    "arm64-apple-ios18": 1 }
+          }
+        }
+        """
+        let manifestPath = tmp.appendingPathComponent("manifest.json")
+        try manifestJSON.write(to: manifestPath, atomically: true, encoding: .utf8)
+
+        let r = try run(["count-by-status", "--manifest", manifestPath.path, "--top-n", "5"])
+        #expect(r.exitCode == 0, "should succeed on valid manifest; got \(r.exitCode); stderr: \(r.stderr)")
+
+        // Assert section headers + key numbers all present (catches
+        // format-string crashes that produced no output or partial output).
+        let expected = [
+            "Manifest schema: v3",
+            "ok:             2",
+            "skipped:        1",
+            "failed:         0",
+            "Per target:",
+            "arm64-apple-macos15",
+            "arm64-apple-ios18",
+            "Top 5 largest extractions:",
+            "Beta",
+            "Alpha",
+        ]
+        for needle in expected {
+            #expect(r.stdout.contains(needle), "count-by-status output missing '\(needle)'; got:\n\(r.stdout)")
+        }
+    }
+
+    @Test("framework-stats on a real synthetic .symbols.json prints expected counts",
+          .enabled(if: binAvailable))
+    func frameworkStatsRealData() throws {
+        // Same model: a tiny realistic .symbols.json fixture, assert
+        // the binary computes + prints the right counts.
+        let tmp = FileManager.default.temporaryDirectory
+            .appendingPathComponent("audit-frameworkstats-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: tmp, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: tmp) }
+
+        // 4 symbols: 1 with constraints, 1 with generics but no constraints, 2 plain.
+        let symbolsJSON = """
+        {
+          "metadata": { "module": { "name": "TestModule" } },
+          "symbols": [
+            { "names": { "title": "alpha" }, "kind": { "identifier": "swift.func" } },
+            { "names": { "title": "beta" },  "kind": { "identifier": "swift.struct" } },
+            { "names": { "title": "gamma" }, "kind": { "identifier": "swift.func" },
+              "swiftGenerics": { "parameters": [{"name":"T"}], "constraints": [] } },
+            { "names": { "title": "delta" }, "kind": { "identifier": "swift.func" },
+              "swiftGenerics": { "parameters": [{"name":"T"}], "constraints": [{"lhs":"T","kind":"conformance","rhs":"Equatable"}] } }
+          ]
+        }
+        """
+        let path = tmp.appendingPathComponent("TestModule.symbols.json")
+        try symbolsJSON.write(to: path, atomically: true, encoding: .utf8)
+
+        let r = try run(["framework-stats", "--file", path.path])
+        #expect(r.exitCode == 0, "should succeed; got \(r.exitCode); stderr: \(r.stderr)")
+        #expect(r.stdout.contains("Framework: TestModule"))
+        // Whitespace-tolerant: collapse runs of whitespace, then match.
+        let normalized = r.stdout.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+        #expect(normalized.contains("Total symbols: 4"))
+        #expect(normalized.contains("With swiftGenerics: 2"))
+        #expect(normalized.contains("With generic constraints: 1"))
+        #expect(normalized.contains("50.0%"), "expected 50% generics for 2/4")
+        #expect(normalized.contains("25.0%"), "expected 25% constraints for 1/4")
+    }
+
     @Test("validate-corpus catches an invalid .symbols.json + exits non-zero",
           .enabled(if: binAvailable))
     func validateCorpusCatchesInvalid() throws {
